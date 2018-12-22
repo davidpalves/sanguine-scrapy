@@ -1,8 +1,10 @@
 # Scraping Doe Sangue
 
-#### Projeto feito para raspar niveis de sangue dos bancos de sangue de Recife
+### Projeto feito para raspar niveis de sangue dos bancos de sangue de Recife
 
-##### Sites raspados:
+------------------------------------------------------
+
+#### Sites raspados:
 * [HEMOPE - Recife](http://www.hemope.pe.gov.br)
 
 ------------------------------------------------------
@@ -37,7 +39,7 @@ Caso queira verificar o status do serviço
 sudo service status mongod
 ```
 
---------------------------------------------------------
+------------------------------------------------------
 Para abrir o shell do Mongo, podemos utilizar:
 
 ```
@@ -69,7 +71,7 @@ e caso queira exportar para json, fora do shell do Mongodb, utilize:
 mongoexport --db doe_sangue --collection niveis --out niveis.json 
 ```
 
---------------------------------------------------------
+------------------------------------------------------
 
 #### Instruções para execução do projeto
 
