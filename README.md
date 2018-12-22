@@ -66,7 +66,7 @@ db.produtos.find();
 
 e caso queira exportar para json, fora do shell do Mongodb, utilize:
 ```
-mongoexport --db kabum --collection produtos --out produtos.json 
+mongoexport --db doe_sangue --collection niveis --out produtos.json 
 ```
 
 --------------------------------------------------------
