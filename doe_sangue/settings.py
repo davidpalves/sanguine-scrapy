@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Scrapy settings for doe_sangue project
 #
 # For simplicity, this file contains only settings considered important or
@@ -64,9 +62,12 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'doe_sangue.pipelines.DoeSanguePipeline': 300,
-#}
+ITEM_PIPELINES = {'doe_sangue.pipelines.MongoDBPipeline': 300}
+
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "doe_sangue"
+MONGODB_COLLECTION = "niveis"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
