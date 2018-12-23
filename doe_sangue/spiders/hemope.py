@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from doe_sangue.items import HemopeItem
 import scrapy
 import re
@@ -9,8 +8,6 @@ class HemopeSpider(scrapy.Spider):
     start_urls = ['http://www.hemope.pe.gov.br/']
 
     def parse(self, response):
-        items = []
-
         for tipo_sangue in response.xpath('//ul[contains(@class,"list-estoque")]/li'):
             
             item = HemopeItem()
