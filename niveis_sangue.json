@@ -1,0 +1,19 @@
+[
+{"url": "https://www.doesanguedoevida.com.br/doar-sangue-recife/", "banco": "HEMATO", "tipo_sangue": "A+", "nivel_sangue": "0.7"},
+{"url": "https://www.doesanguedoevida.com.br/doar-sangue-recife/", "banco": "HEMATO", "tipo_sangue": "B+", "nivel_sangue": "0.7"},
+{"url": "https://www.doesanguedoevida.com.br/doar-sangue-recife/", "banco": "HEMATO", "tipo_sangue": "AB+", "nivel_sangue": "0.6"},
+{"url": "https://www.doesanguedoevida.com.br/doar-sangue-recife/", "banco": "HEMATO", "tipo_sangue": "O+", "nivel_sangue": "0.6"},
+{"url": "https://www.doesanguedoevida.com.br/doar-sangue-recife/", "banco": "HEMATO", "tipo_sangue": "A-", "nivel_sangue": "0.3"},
+{"url": "https://www.doesanguedoevida.com.br/doar-sangue-recife/", "banco": "HEMATO", "tipo_sangue": "B-", "nivel_sangue": "0.2"},
+{"url": "https://www.doesanguedoevida.com.br/doar-sangue-recife/", "banco": "HEMATO", "tipo_sangue": "AB-", "nivel_sangue": "0.7"},
+{"url": "https://www.doesanguedoevida.com.br/doar-sangue-recife/", "banco": "HEMATO", "tipo_sangue": "O-", "nivel_sangue": "0.4"},
+
+{"url": "http://www.hemope.pe.gov.br/", "banco": "HEMOPE", "tipo_sangue": "A+", "nivel_sangue": "sangue critica"},
+{"url": "http://www.hemope.pe.gov.br/", "banco": "HEMOPE", "tipo_sangue": "A-", "nivel_sangue": "sangue alerta"},
+{"url": "http://www.hemope.pe.gov.br/", "banco": "HEMOPE", "tipo_sangue": "B+", "nivel_sangue": "sangue alerta"},
+{"url": "http://www.hemope.pe.gov.br/", "banco": "HEMOPE", "tipo_sangue": "B-", "nivel_sangue": "sangue estavel"},
+{"url": "http://www.hemope.pe.gov.br/", "banco": "HEMOPE", "tipo_sangue": "O+", "nivel_sangue": "sangue critica"},
+{"url": "http://www.hemope.pe.gov.br/", "banco": "HEMOPE", "tipo_sangue": "O-", "nivel_sangue": "sangue alerta"},
+{"url": "http://www.hemope.pe.gov.br/", "banco": "HEMOPE", "tipo_sangue": "AB+", "nivel_sangue": "sangue critica"},
+{"url": "http://www.hemope.pe.gov.br/", "banco": "HEMOPE", "tipo_sangue": "AB-", "nivel_sangue": "sangue estavel"}
+]

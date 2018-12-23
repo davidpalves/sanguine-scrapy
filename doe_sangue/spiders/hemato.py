@@ -8,14 +8,19 @@ class HematoSpider(scrapy.Spider):
     start_urls = ['http://www.doesanguedoevida.com.br/doar-sangue-recife/']
 
     def parse(self, response):
-        for tipo_sangue in response.xpath(' //div[contains(@class,"item-estoque")]'):
+        for tipo_sangue in response.xpath(' //div[contains\
+         (@class,"item-estoque")]'):
 
             item = HematoItem()
-            
+
             item['url'] = response.url
 
-            item['tipo_sangue'] = tipo_sangue.xpath('.//div[contains(@class, tipo-sangue)][2]/text()').extract_first()
+            item['banco'] = "HEMATO"
 
-            item['nivel_sangue'] = tipo_sangue.xpath('.//div[contains(@class, "knob")]/@data-val[1]').extract_first()
+            item['tipo_sangue'] = tipo_sangue.xpath('.//div[contains\
+             (@class, tipo-sangue)][2]/text()').extract_first()
+
+            item['nivel_sangue'] = tipo_sangue.xpath('.//div[contains\
+             (@class, "knob")]/@data-val[1]').extract_first()
 
             yield item
