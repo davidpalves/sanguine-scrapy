@@ -6,6 +6,7 @@
 
 #### Sites raspados:
 * [HEMOPE - Recife](http://www.hemope.pe.gov.br)
+* [HEMATO - Recife](https://doesanguedoevida.com.br/doar-sangue-recife)
 
 ------------------------------------------------------
 
