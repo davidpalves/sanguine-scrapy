@@ -66,7 +66,7 @@ ROBOTSTXT_OBEY = True
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'doe_sangue.pipelines.MongoDBPipeline': 300,
-    'doe_sangue.pipelines.NivelSanguePipeline': 200
+    'doe_sangue.pipelines.NivelSangueHematoPipeline': 250
     }
 
 MONGODB_SERVER = "localhost"

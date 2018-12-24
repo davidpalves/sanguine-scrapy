@@ -5,12 +5,12 @@ from scrapy.exceptions import DropItem
 from scrapy import log
 
 
-class NivelSanguePipeline(object):
+class NivelSangueHematoPipeline(object):
     def process_item(self, item, spider):
-        if len(item['nivel_sangue']) <= 4:
+        if item['banco'] == "HEMATO":
             if float(item['nivel_sangue']) > 0.6:
                 item['nivel_sangue'] = 'sangue estavel'
-            elif float(item['nivel_sangue']) > 0.4:
+            elif float(item['nivel_sangue']) >= 0.4:
                 item['nivel_sangue'] = 'sangue alerta'
             else:
                 item['nivel_sangue'] = 'sangue critico'
