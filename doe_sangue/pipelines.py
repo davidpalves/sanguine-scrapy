@@ -9,11 +9,11 @@ class NivelSangueHematoPipeline(object):
     def process_item(self, item, spider):
         if item['banco'] == "HEMATO":
             if float(item['nivel_sangue']) > 0.6:
-                item['nivel_sangue'] = 'sangue estavel'
+                item['nivel_sangue'] = 'estavel'
             elif float(item['nivel_sangue']) >= 0.4:
-                item['nivel_sangue'] = 'sangue alerta'
+                item['nivel_sangue'] = 'alerta'
             else:
-                item['nivel_sangue'] = 'sangue critico'
+                item['nivel_sangue'] = 'critico'
 
         return item
 

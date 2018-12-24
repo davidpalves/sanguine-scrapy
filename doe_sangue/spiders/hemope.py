@@ -22,6 +22,6 @@ class HemopeSpider(scrapy.Spider):
 
             item['nivel_sangue'] = tipo_sangue.xpath(
                 './/div[contains(@class,"bolsa")]/div[2]/@class'
-                ).extract_first()
+                ).re_first(r'sangue\s*(.*)')
 
             yield item
