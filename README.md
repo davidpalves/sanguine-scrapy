@@ -25,6 +25,7 @@
 4. [Psycopg2](https://pypi.org/project/psycopg2/)
 5. [Python Decouple](https://github.com/henriquebastos/python-decouple)
 6. [Scrapy](https://scrapy.org/)
+7. [PostgreSQL](https://www.postgresql.org/)
 
 ------------------------------------------------------
 
