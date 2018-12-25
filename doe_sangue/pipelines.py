@@ -3,6 +3,8 @@ import pymongo
 from scrapy.conf import settings
 from scrapy.exceptions import DropItem
 from scrapy import log
+from datetime import datetime
+import psycopg2
 
 
 class NivelSangueHematoPipeline(object):
@@ -37,4 +39,28 @@ class MongoDBPipeline(object):
             self.collection.insert(dict(item))
             log.msg("Produto adicionado ao banco de dados.",
                     level=log.DEBUG, spider=spider)
+        return item
+
+
+class PostgreSQLPipeline(object):
+    def __init__(self):
+        self.connection = psycopg2.connect(
+            host=settings['POSTGRES_HOST'],
+            database=settings['POSTGRES_DB'],
+            user=settings['POSTGRES_USER'],
+            password=settings['POSTGRES_PASSWORD'])
+        self.cursor = self.connection.cursor()
+
+    def process_item(self, item, spider):
+        self.cursor.execute("INSERT INTO nivel_sangue\
+         (banco, tipo_sangue, nivel_sangue, url, scrapedAt) \
+         VALUES (%s, %s, %s, %s, %s);", [
+                item['banco'],
+                item['tipo_sangue'],
+                item['nivel_sangue'],
+                item['url'],
+                str(datetime.now())])
+
+        self.connection.commit()
+
         return item

@@ -1,11 +1,4 @@
-# Scrapy settings for doe_sangue project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://doc.scrapy.org/en/latest/topics/settings.html
-#     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+from decouple import config
 
 BOT_NAME = 'doe_sangue'
 
@@ -66,13 +59,20 @@ ROBOTSTXT_OBEY = True
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'doe_sangue.pipelines.MongoDBPipeline': 300,
+    'doe_sangue.pipelines.PostgreSQLPipeline': 350,
     'doe_sangue.pipelines.NivelSangueHematoPipeline': 250
     }
 
-MONGODB_SERVER = "localhost"
-MONGODB_PORT = 27017
-MONGODB_DB = "doe_sangue"
-MONGODB_COLLECTION = "niveis"
+MONGODB_SERVER = config('MONGODB_SERVER')
+MONGODB_PORT = config('MONGODB_PORT', cast=int)
+MONGODB_DB = config('MONGODB_DB')
+MONGODB_COLLECTION = config('MONGODB_COLLECTION')
+
+
+POSTGRES_HOST = config('POSTGRES_HOST')
+POSTGRES_DB = config('POSTGRES_DB')
+POSTGRES_USER = config('POSTGRES_USER')
+POSTGRES_PASSWORD = config('POSTGRES_PASSWORD')
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

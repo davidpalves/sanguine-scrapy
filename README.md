@@ -22,7 +22,9 @@
 1. [Python 3](https://www.python.org/)
 2. [Mongodb](https://www.mongodb.com/)
 3. [Pymongo](https://api.mongodb.com/python/current/)
-4. [Scrapy](https://scrapy.org/)
+4. [Psycopg2](https://pypi.org/project/psycopg2/)
+5. [Python Decouple](https://github.com/henriquebastos/python-decouple)
+6. [Scrapy](https://scrapy.org/)
 
 ------------------------------------------------------
 
