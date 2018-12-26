@@ -1,5 +1,10 @@
 from doe_sangue.items import HemopeItem
 import scrapy
+from .constants import (
+    XPATH_ITEMS,
+    XPATH_TIPO_SANGUE,
+    XPATH_NIVEL_SANGUE
+)
 
 
 class HemopeSpider(scrapy.Spider):
@@ -8,8 +13,7 @@ class HemopeSpider(scrapy.Spider):
     start_urls = ['http://www.hemope.pe.gov.br/']
 
     def parse(self, response):
-        for tipo_sangue in response.xpath('//ul[contains(\
-         @class,"list-estoque")]/li'):
+        for tipo_sangue in response.xpath(XPATH_ITEMS['hemope']):
 
             item = HemopeItem()
 
@@ -18,10 +22,9 @@ class HemopeSpider(scrapy.Spider):
             item['banco'] = "HEMOPE"
 
             item['tipo_sangue'] = tipo_sangue.xpath(
-                './/strong/text()').extract_first()
+                XPATH_TIPO_SANGUE['hemope']).extract_first()
 
             item['nivel_sangue'] = tipo_sangue.xpath(
-                './/div[contains(@class,"bolsa")]/div[2]/@class'
-                ).re_first(r'sangue\s*(.*)')
+                XPATH_NIVEL_SANGUE['hemope']).re_first(r'sangue\s*(.*)')
 
             yield item
