@@ -59,7 +59,8 @@ class PostgreSQLPipeline(object):
                 item['tipo_sangue'],
                 item['nivel_sangue'],
                 item['url'],
-                str(datetime.now())])
+                datetime.now()
+                ])
 
         self.connection.commit()
 

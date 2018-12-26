@@ -1,4 +1,5 @@
 from doe_sangue.items import HemopeItem
+from datetime import datetime
 import scrapy
 from .constants import (
     XPATH_ITEMS,
@@ -26,5 +27,7 @@ class HemopeSpider(scrapy.Spider):
 
             item['nivel_sangue'] = tipo_sangue.xpath(
                 XPATH_NIVEL_SANGUE['hemope']).re_first(r'sangue\s*(.*)')
+
+            item['data_extracao'] = datetime.now()
 
             yield item
