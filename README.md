@@ -27,6 +27,17 @@
 6. [Scrapy](https://scrapy.org/)
 7. [PostgreSQL](https://www.postgresql.org/)
 
+
+#### Instalando os requerimentos para o projeto
+* A versão utilizada de Python foi a 3.6.7.
+
+* A versão utilizada do PostgreSQL foi a 9.4.20
+
+Algumas dependencias do projeto podem ser instaladas utilizando o arquivo requirements.txt:
+```
+pip install -r requirements.txt
+```
+
 ------------------------------------------------------
 
 #### Configurando MongoDB
