@@ -12,9 +12,9 @@
 
 #### Links para instruções do projeto
 * [Requerimentos do Projeto](https://github.com/DavidPierre21/doe-sangue-scrapy#requerimentos-para-o-projeto)
+* [Instalando os requerimentos para o projeto](https://github.com/DavidPierre21/doe-sangue-scrapy#instalando-os-requerimentos-para-o-projeto)
 * [Configuração do MongoDB](https://github.com/DavidPierre21/doe-sangue-scrapy#configurando-mongodb)
 * [Execução do projeto](https://github.com/DavidPierre21/doe-sangue-scrapy#instru%C3%A7%C3%B5es-para-execu%C3%A7%C3%A3o-do-projeto)
-* [Tempo despendido](https://github.com/DavidPierre21/doe-sangue-scrapy#tempo-gasto)
 
 ------------------------------------------------------
 
