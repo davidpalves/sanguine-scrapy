@@ -66,5 +66,4 @@ class PostgreSQLPipeline(object):
 
     def close_spider(self, spider):
         self.cursos.execute("DELETE FROM nivel_sangue a\
-                                USING nivel_sangue b WHERE\
-                                a._id < b._id AND a._id = b._id;")
+         USING nivel_sangue b WHERE a._id < b._id AND a._id = b._id;")
