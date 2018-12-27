@@ -64,16 +64,6 @@ class PostgreSQLPipeline(object):
 
         return item
 
-
-class DeleteDuplicatesPostgreSQLPipeline:
-    def __init__(self):
-        self.connection = psycopg2.connect(
-            host=settings['POSTGRES_HOST'],
-            database=settings['POSTGRES_DB'],
-            user=settings['POSTGRES_USER'],
-            password=settings['POSTGRES_PASSWORD'])
-        self.cursor = self.connection.cursor()
-
     def close_spider(self, spider):
         self.cursos.execute("DELETE FROM nivel_sangue a\
                                 USING nivel_sangue b WHERE\

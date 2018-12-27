@@ -61,7 +61,6 @@ ITEM_PIPELINES = {
     'doe_sangue.pipelines.NivelSangueHematoPipeline': 250,
     'doe_sangue.pipelines.MongoDBPipeline': 800,
     'doe_sangue.pipelines.PostgreSQLPipeline': 850,
-    'doe_sangue.pipelines.DeleteDuplicatesPostgreSQLPipeline': 851,
     }
 
 MONGODB_SERVER = config('MONGODB_SERVER')
