@@ -1,10 +1,9 @@
-import pymongo
-
-from scrapy.conf import settings
 from scrapy.exceptions import DropItem
-from scrapy import log
+from scrapy.conf import settings
 from datetime import datetime
+from scrapy import log
 import psycopg2
+import pymongo
 
 
 class NivelSangueHematoPipeline(object):
@@ -21,6 +20,7 @@ class NivelSangueHematoPipeline(object):
 
 
 class MongoDBPipeline(object):
+
     def __init__(self):
         connection = pymongo.MongoClient(
             settings['MONGODB_SERVER'],
@@ -30,15 +30,12 @@ class MongoDBPipeline(object):
         self.collection = db[settings['MONGODB_COLLECTION']]
 
     def process_item(self, item, spider):
-        valid = True
         for data in item:
             if not data:
-                valid = False
-                raise DropItem("Faltando {0}!".format(data))
-        if valid:
-            self.collection.insert(dict(item))
-            log.msg("Produto adicionado ao banco de dados.",
-                    level=log.DEBUG, spider=spider)
+                raise DropItem("Missing data!")
+        self.collection.update({'_id': item['_id']}, dict(item), upsert=True)
+        log.msg("Question added to MongoDB database!",
+                level=log.DEBUG, spider=spider)
         return item
 
 
@@ -53,8 +50,9 @@ class PostgreSQLPipeline(object):
 
     def process_item(self, item, spider):
         self.cursor.execute("INSERT INTO nivel_sangue\
-         (banco, tipo_sangue, nivel_sangue, url, scrapedAt) \
-         VALUES (%s, %s, %s, %s, %s);", [
+         (_id, banco, tipo_sangue, nivel_sangue, url, scrapedAt) \
+         VALUES (%s, %s, %s, %s, %s, %s);", [
+                item['_id'],
                 item['banco'],
                 item['tipo_sangue'],
                 item['nivel_sangue'],
@@ -65,3 +63,18 @@ class PostgreSQLPipeline(object):
         self.connection.commit()
 
         return item
+
+
+class DeleteDuplicatesPostgreSQLPipeline:
+    def __init__(self):
+        self.connection = psycopg2.connect(
+            host=settings['POSTGRES_HOST'],
+            database=settings['POSTGRES_DB'],
+            user=settings['POSTGRES_USER'],
+            password=settings['POSTGRES_PASSWORD'])
+        self.cursor = self.connection.cursor()
+
+    def close_spider(self, spider):
+        self.cursos.execute("DELETE FROM nivel_sangue a\
+                                USING nivel_sangue b WHERE\
+                                a._id < b._id AND a._id = b._id;")

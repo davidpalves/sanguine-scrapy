@@ -3,6 +3,7 @@ from scrapy import Field
 
 
 class HemopeItem(scrapy.Item):
+    _id = Field()
     url = Field()
     banco = Field()
     tipo_sangue = Field()
@@ -11,6 +12,7 @@ class HemopeItem(scrapy.Item):
 
 
 class HematoItem(scrapy.Item):
+    _id = Field()  # IDs = Banco-TipoSangue
     url = Field()
     banco = Field()
     tipo_sangue = Field()
