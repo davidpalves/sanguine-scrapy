@@ -34,7 +34,7 @@ class MongoDBPipeline(object):
             if not data:
                 raise DropItem("Missing data!")
         self.collection.update({'_id': item['_id']}, dict(item), upsert=True)
-        log.msg("Question added to MongoDB database!",
+        log.msg("Item added to MongoDB database!",
                 level=log.DEBUG, spider=spider)
         return item
 
@@ -50,9 +50,8 @@ class PostgreSQLPipeline(object):
 
     def process_item(self, item, spider):
         self.cursor.execute("INSERT INTO nivel_sangue\
-         (_id, banco, tipo_sangue, nivel_sangue, url, scrapedAt) \
-         VALUES (%s, %s, %s, %s, %s, %s);", [
-                item['_id'],
+         (banco, tipo_sangue, nivel_sangue, url, scrapedAt) \
+         VALUES (%s, %s, %s, %s, %s);", [
                 item['banco'],
                 item['tipo_sangue'],
                 item['nivel_sangue'],
@@ -65,5 +64,7 @@ class PostgreSQLPipeline(object):
         return item
 
     def close_spider(self, spider):
-        self.cursos.execute("DELETE FROM nivel_sangue a\
-         USING nivel_sangue b WHERE a._id < b._id AND a._id = b._id;")
+        self.cursor.execute("DELETE FROM nivel_sangue a\
+         USING nivel_sangue b WHERE ((a.banco = b.banco AND\
+         a.tipo_sangue = b.tipo_sangue) AND (a.id < b.id));")
+        self.connection.commit()
