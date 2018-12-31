@@ -50,13 +50,14 @@ class PostgreSQLPipeline(object):
 
     def process_item(self, item, spider):
         self.cursor.execute("INSERT INTO nivel_sangue\
-         (banco, tipo_sangue, nivel_sangue, url, scrapedAt) \
-         VALUES (%s, %s, %s, %s, %s);", [
+         (banco, tipo_sangue, nivel_sangue, url, scrapedAt, cidade) \
+         VALUES (%s, %s, %s, %s, %s, %s);", [
                 item['banco'],
                 item['tipo_sangue'],
                 item['nivel_sangue'],
                 item['url'],
-                datetime.now()
+                datetime.now(),
+                item['cidade']
                 ])
 
         self.connection.commit()

@@ -9,6 +9,7 @@ class HemopeItem(scrapy.Item):
     tipo_sangue = Field()
     nivel_sangue = Field()
     data_extracao = Field()
+    cidade = Field()
 
 
 class HematoItem(scrapy.Item):
@@ -18,3 +19,4 @@ class HematoItem(scrapy.Item):
     tipo_sangue = Field()
     nivel_sangue = Field()
     data_extracao = Field()
+    cidade = Field()

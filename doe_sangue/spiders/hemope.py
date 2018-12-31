@@ -30,6 +30,8 @@ class HemopeSpider(scrapy.Spider):
 
             item['data_extracao'] = datetime.now()
 
+            item['cidade'] = "Recife"
+
             item['_id'] = item['banco'] + "-" + item['tipo_sangue']
 
             yield item
