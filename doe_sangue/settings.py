@@ -5,6 +5,8 @@ BOT_NAME = 'doe_sangue'
 SPIDER_MODULES = ['doe_sangue.spiders']
 NEWSPIDER_MODULE = 'doe_sangue.spiders'
 
+LOG_LEVEL = 'ERROR'
+
 
 # Crawl responsibly by identifying yourself (and your website)
 # on the user-agent
