@@ -104,3 +104,13 @@ cd doe_sangue
 ```
 scrapy crawl hemope
 ```
+
+#### Executando todas as spiders
+Há duas opções para utilização, caso queira utilizar o script em python, rode:
+```
+make py.crawl
+```
+Para utilizar o script em shell, utilize:
+```
+make list.crawl
+```
