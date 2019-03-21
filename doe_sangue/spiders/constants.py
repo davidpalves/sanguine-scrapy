@@ -18,9 +18,15 @@ XPATH_PAGES = {
 }
 
 XPATH_PLACE_NAME = {
-    'hemato': '//div[contains(@class, "container-segura")]/section/div/div[1]/p[3]/text()'
+    'hemato': '//div[contains(@class, "container-segura")]/section/div/div[1]/p[3]/text()',
+    'hemope': '//a/img/@alt'
 }
 
 XPATH_ADDRESS = {
-    'hemato': '//div[contains(@class, "container-segura")]/section/div/div[1]/p[1]/text()'
+    'hemato': '//div[contains(@class, "container-segura")]/section/div/div[1]/p[1]/text()',
+    'hemope': '//address/strong[1]/text()'
+}
+
+XPATH_CITY = {
+    'hemato': '//div[contains(@class, "container-segura")]/section/div/div[1]/p[3]/text()'
 }

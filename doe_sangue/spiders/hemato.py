@@ -7,7 +7,8 @@ from .constants import (
     XPATH_NIVEL_SANGUE,
     XPATH_PAGES,
     XPATH_PLACE_NAME,
-    XPATH_ADDRESS
+    XPATH_ADDRESS,
+    XPATH_CITY
 )
 
 
@@ -29,7 +30,7 @@ class HematoSpider(scrapy.Spider):
 
             item['url'] = response.url
 
-            item['banco'] = response.xpath(XPATH_PLACE_NAME['hemato']).extract_first()
+            item['banco'] = 'HEMATO'
 
             item['tipo_sangue'] = tipo_sangue.xpath(
                 XPATH_TIPO_SANGUE['hemato']).extract_first()
@@ -38,11 +39,14 @@ class HematoSpider(scrapy.Spider):
                 XPATH_NIVEL_SANGUE['hemato']).extract_first()
 
             item['data_extracao'] = datetime.now()
-            
-            item['endereco'] = response.xpath(XPATH_ADDRESS['hemato']).extract_first()
 
-            item['cidade'] = "Recife"
+            item['endereco'] = response.xpath(
+                XPATH_ADDRESS['hemato']).extract_first()
 
-            item['_id'] = item['url']
+            item['cidade'] = response.xpath(
+                XPATH_CITY['hemato']).extract_first()
+
+            item['_id'] = item['banco'] + \
+                "-" + item['cidade'] + "-" + item['tipo_sangue']
 
             yield item

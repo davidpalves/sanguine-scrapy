@@ -4,7 +4,9 @@ import scrapy
 from .constants import (
     XPATH_ITEMS,
     XPATH_TIPO_SANGUE,
-    XPATH_NIVEL_SANGUE
+    XPATH_NIVEL_SANGUE,
+    XPATH_ADDRESS,
+    XPATH_PLACE_NAME
 )
 
 
@@ -20,7 +22,8 @@ class HemopeSpider(scrapy.Spider):
 
             item['url'] = response.url
 
-            item['banco'] = "HEMOPE"
+            item['banco'] = response.xpath(
+                XPATH_PLACE_NAME['hemope']).extract_first()
 
             item['tipo_sangue'] = tipo_sangue.xpath(
                 XPATH_TIPO_SANGUE['hemope']).extract_first()
@@ -30,8 +33,12 @@ class HemopeSpider(scrapy.Spider):
 
             item['data_extracao'] = datetime.now()
 
-            item['cidade'] = "Recife"
+            item['endereco'] = response.xpath(
+                XPATH_ADDRESS['hemope']).extract_first()
 
-            item['_id'] = item['banco'] + "-" + item['tipo_sangue']
+            item['cidade'] = "Recife - PE"
+
+            item['_id'] = item['banco'] + \
+                "-" + item['cidade'] + "-" + item['tipo_sangue']
 
             yield item
