@@ -12,3 +12,15 @@ XPATH_NIVEL_SANGUE = {
     'hemato': './/div[contains(@class, "knob")]/@data-val[1]',
     'hemope': './/div[contains(@class,"bolsa")]/div[2]/@class'
 }
+
+XPATH_PAGES = {
+    'hemato': './/li[contains(@class, "dropdown")][1]/ul[contains(@class, "dropdown-menu")]/li/a'
+}
+
+XPATH_PLACE_NAME = {
+    'hemato': '//div[contains(@class, "container-segura")]/section/div/div[1]/p[3]/text()'
+}
+
+XPATH_ADDRESS = {
+    'hemato': '//div[contains(@class, "container-segura")]/section/div/div[1]/p[1]/text()'
+}

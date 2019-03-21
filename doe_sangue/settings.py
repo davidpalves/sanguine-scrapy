@@ -5,7 +5,7 @@ BOT_NAME = 'doe_sangue'
 SPIDER_MODULES = ['doe_sangue.spiders']
 NEWSPIDER_MODULE = 'doe_sangue.spiders'
 
-LOG_LEVEL = 'ERROR'
+LOG_LEVEL = 'DEBUG'
 
 
 # Crawl responsibly by identifying yourself (and your website)
@@ -62,7 +62,7 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
     'doe_sangue.pipelines.NivelSangueHematoPipeline': 250,
     'doe_sangue.pipelines.MongoDBPipeline': 800,
-    'doe_sangue.pipelines.PostgreSQLPipeline': 850,
+    # 'doe_sangue.pipelines.PostgreSQLPipeline': 850,
     }
 
 MONGODB_SERVER = config('MONGODB_SERVER')

@@ -19,4 +19,5 @@ class HematoItem(scrapy.Item):
     tipo_sangue = Field()
     nivel_sangue = Field()
     data_extracao = Field()
+    endereco = Field()
     cidade = Field()

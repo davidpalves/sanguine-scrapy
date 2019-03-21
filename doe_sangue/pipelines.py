@@ -39,33 +39,33 @@ class MongoDBPipeline(object):
         return item
 
 
-class PostgreSQLPipeline(object):
-    def __init__(self):
-        self.connection = psycopg2.connect(
-            host=settings['POSTGRES_HOST'],
-            database=settings['POSTGRES_DB'],
-            user=settings['POSTGRES_USER'],
-            password=settings['POSTGRES_PASSWORD'])
-        self.cursor = self.connection.cursor()
+# class PostgreSQLPipeline(object):
+#     def __init__(self):
+#         self.connection = psycopg2.connect(
+#             host=settings['POSTGRES_HOST'],
+#             database=settings['POSTGRES_DB'],
+#             user=settings['POSTGRES_USER'],
+#             password=settings['POSTGRES_PASSWORD'])
+#         self.cursor = self.connection.cursor()
 
-    def process_item(self, item, spider):
-        self.cursor.execute("INSERT INTO nivel_sangue\
-         (banco, tipo_sangue, nivel_sangue, url, scrapedAt, cidade) \
-         VALUES (%s, %s, %s, %s, %s, %s);", [
-                item['banco'],
-                item['tipo_sangue'],
-                item['nivel_sangue'],
-                item['url'],
-                datetime.now(),
-                item['cidade']
-                ])
+#     def process_item(self, item, spider):
+#         self.cursor.execute("INSERT INTO nivel_sangue\
+#          (banco, tipo_sangue, nivel_sangue, url, scrapedAt, cidade) \
+#          VALUES (%s, %s, %s, %s, %s, %s);", [
+#                 item['banco'],
+#                 item['tipo_sangue'],
+#                 item['nivel_sangue'],
+#                 item['url'],
+#                 datetime.now(),
+#                 item['cidade']
+#                 ])
 
-        self.connection.commit()
+#         self.connection.commit()
 
-        return item
+#         return item
 
-    def close_spider(self, spider):
-        self.cursor.execute("DELETE FROM nivel_sangue a\
-         USING nivel_sangue b WHERE ((a.banco = b.banco AND\
-         a.tipo_sangue = b.tipo_sangue) AND (a.id < b.id));")
-        self.connection.commit()
+#     def close_spider(self, spider):
+#         self.cursor.execute("DELETE FROM nivel_sangue a\
+#          USING nivel_sangue b WHERE ((a.banco = b.banco AND\
+#          a.tipo_sangue = b.tipo_sangue) AND (a.id < b.id));")
+#         self.connection.commit()
