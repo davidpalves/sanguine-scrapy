@@ -62,19 +62,12 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
     'doe_sangue.pipelines.NivelSangueHematoPipeline': 250,
     'doe_sangue.pipelines.MongoDBPipeline': 800,
-    # 'doe_sangue.pipelines.PostgreSQLPipeline': 850,
     }
 
 MONGODB_SERVER = config('MONGODB_SERVER')
 MONGODB_PORT = config('MONGODB_PORT', cast=int)
 MONGODB_DB = config('MONGODB_DB')
 MONGODB_COLLECTION = config('MONGODB_COLLECTION')
-
-
-POSTGRES_HOST = config('POSTGRES_HOST')
-POSTGRES_DB = config('POSTGRES_DB')
-POSTGRES_USER = config('POSTGRES_USER')
-POSTGRES_PASSWORD = config('POSTGRES_PASSWORD')
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

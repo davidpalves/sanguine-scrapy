@@ -24,29 +24,33 @@ class HematoSpider(scrapy.Spider):
             yield response.follow(page, callback=self.parse_item)
 
     def parse_item(self, response):
-        for tipo_sangue in response.xpath(XPATH_ITEMS['hemato']):
+        item = HematoItem()
 
-            item = HematoItem()
+        item['url'] = response.url
 
-            item['url'] = response.url
+        item['banco'] = 'HEMATO'
 
-            item['banco'] = 'HEMATO'
+        item['data_extracao'] = datetime.now()
 
-            item['tipo_sangue'] = tipo_sangue.xpath(
-                XPATH_TIPO_SANGUE['hemato']).extract_first()
-
-            item['nivel_sangue'] = tipo_sangue.xpath(
-                XPATH_NIVEL_SANGUE['hemato']).extract_first()
-
-            item['data_extracao'] = datetime.now()
-
-            item['endereco'] = response.xpath(
+        item['endereco'] = response.xpath(
                 XPATH_ADDRESS['hemato']).extract_first()
 
-            item['cidade'] = response.xpath(
+        item['cidade'] = response.xpath(
                 XPATH_CITY['hemato']).extract_first()
 
-            item['_id'] = item['banco'] + \
-                "-" + item['cidade'] + "-" + item['tipo_sangue']
+        item['_id'] = item['banco'] + "-" + item['cidade']
 
-            yield item
+        sangue = []
+        for tipo_sangue in response.xpath(XPATH_ITEMS['hemato']):
+            tipo_sanguineo = tipo_sangue.xpath(
+                XPATH_TIPO_SANGUE['hemato']).extract_first()
+
+            nivel_sangue = tipo_sangue.xpath(
+                XPATH_NIVEL_SANGUE['hemato']).extract_first()
+
+            sangue.append(
+                {'tipo_sangue': tipo_sanguineo, 'nivel_sangue': nivel_sangue})
+
+        item['sangue'] = sangue
+
+        yield item
