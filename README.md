@@ -22,16 +22,13 @@
 1. [Python 3](https://www.python.org/)
 2. [Mongodb](https://www.mongodb.com/)
 3. [Pymongo](https://api.mongodb.com/python/current/)
-4. [Psycopg2](https://pypi.org/project/psycopg2/)
-5. [Python Decouple](https://github.com/henriquebastos/python-decouple)
-6. [Scrapy](https://scrapy.org/)
-7. [PostgreSQL](https://www.postgresql.org/)
+4. [Python Decouple](https://github.com/henriquebastos/python-decouple)
+5. [Scrapy](https://scrapy.org/)
+6. [PostgreSQL](https://www.postgresql.org/)
 
 
 #### Instalando os requerimentos para o projeto
 * A versão utilizada de Python foi a 3.6.7.
-
-* A versão utilizada do PostgreSQL foi a 9.4.20
 
 Algumas dependencias do projeto podem ser instaladas utilizando o arquivo requirements.txt:
 ```
