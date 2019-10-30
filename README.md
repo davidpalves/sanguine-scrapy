@@ -24,7 +24,6 @@
 3. [Pymongo](https://api.mongodb.com/python/current/)
 4. [Python Decouple](https://github.com/henriquebastos/python-decouple)
 5. [Scrapy](https://scrapy.org/)
-6. [PostgreSQL](https://www.postgresql.org/)
 
 
 #### Instalando os requerimentos para o projeto
