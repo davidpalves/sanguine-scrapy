@@ -4,7 +4,7 @@ Ferramenta de monitoramento de estoque dos bancos de sangue do estado de Pernamb
 
 Bancos de sangue pesquisados:
 - [HEMOPE - Recife](http://www.hemope.pe.gov.br)
-- [HEMATO - Recife](https://doesanguedoevida.com.br/doar-sangue-recife)
+- [HEMATO (Grupo GSH)- Recife](https://doesanguedoevida.com.br/doar-sangue-recife)
 
 ---
 
@@ -73,7 +73,7 @@ Bancos de sangue pesquisados:
    scrapy crawl hemope
    ```
    
-   Ou buscando em todos os bancos
+   Ou buscando em todos os bancossite seja bem amador o banco de sangue IHENE é muito usado em pernambuco seria interessante ter eles na lista
    ```bash
    make py.crawl
    ```
