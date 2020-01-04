@@ -21,11 +21,11 @@ Bancos de sangue pesquisados:
 ### Usando o Linux
 
    #### Requisitos
-   1. [Python 3.6.7](https://www.python.org/)
-   2. [Mongodb](https://www.mongodb.com/)
-   3. [Pymongo](https://api.mongodb.com/python/current/)
-   4. [Python Decouple](https://github.com/henriquebastos/python-decouple)
-   5. [Scrapy](https://scrapy.org/)
+   1. [Mongodb 4.11](https://www.mongodb.com/)
+   2. [Python 3.6.7](https://www.python.org/)
+   3. [Pymongo 3.7.2](https://api.mongodb.com/python/3.7.2/api/index.html)
+   4. [Python Decouple 3.1](https://github.com/henriquebastos/python-decouple)
+   5. [Scrapy 1.5.1](https://scrapy.org/)
 
 #### Passos
 1. Instale o Python
