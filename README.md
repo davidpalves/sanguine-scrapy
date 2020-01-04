@@ -10,55 +10,51 @@ Bancos de sangue pesquisados:
 
 ## Instalação do projeto
 
-### Instalação com o Docker
+### Usando o Docker
 
-#### Requisitos
-1. Docker Comunity Edition 19.03.5
-2. Docker compose 1.21.0
+   #### Requisitos
+   1. Docker Comunity Edition 19.03.5
+   2. Docker compose 1.21.0
+
+   #### Passos
+
+### Usando o Linux
+
+   #### Requisitos
+   1. [Python 3.6.7](https://www.python.org/)
+   2. [Mongodb](https://www.mongodb.com/)
+   3. [Pymongo](https://api.mongodb.com/python/current/)
+   4. [Python Decouple](https://github.com/henriquebastos/python-decouple)
+   5. [Scrapy](https://scrapy.org/)
 
 #### Passos
-
-### Instalação Linux
-
-#### Requisitos
-1. [Python 3.6.7](https://www.python.org/)
-2. [Mongodb](https://www.mongodb.com/)
-3. [Pymongo](https://api.mongodb.com/python/current/)
-4. [Python Decouple](https://github.com/henriquebastos/python-decouple)
-5. [Scrapy](https://scrapy.org/)
-
-#### Passos
-
 1. Instale o Python
 2. Instale os requisitos do projeto
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 3. Instale o MongoDB
 4. Inicie o servico do mongo
-```bash
-sudo service start mongod
-```
+   ```bash
+   sudo service start mongod
+   ```
 5. Verifique o status do serviço
-```bash
-sudo service status mongod
-```
+   ```bash
+   sudo service status mongod
+   ```
 6. Inicie o shell do Mongo
-
-```bash
-mongo
-```
+   ```bash
+   mongo
+   ```
 7. Selecione a base de dados chamada "doe_sangue" (se não ainda existir é criada automaticamente)
-```bash
-use doe_sangue;
-```
+   ```bash
+   use doe_sangue;
+   ```
 8. Crie a coleção de dados chamada "niveis"
-
-```bash
-db.createCollection("niveis");
-```
+   ```bash
+   db.createCollection("niveis");
+   ```
 ---
-
 
 ## Coletando os dados das bases
 ### No docker
