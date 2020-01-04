@@ -21,7 +21,6 @@ Bancos de sangue pesquisados:
 ### Instalação Linux
 
 #### Requisitos
-
 1. [Python 3.6.7](https://www.python.org/)
 2. [Mongodb](https://www.mongodb.com/)
 3. [Pymongo](https://api.mongodb.com/python/current/)
@@ -60,21 +59,14 @@ db.createCollection("niveis");
 ```
 ---
 
+
 ## Coletando os dados das bases
-
 ### No docker
-
-
 ### No Linux
-
 1. Clone o repositório
    ```bash
    git clone https://github.com/DavidPierre21/doe-sangue-scrapy.git
    ``````bash
-99
-db.niveis.find();
-100
-```
 2. Navegue até o diretório do projeto
    ```bash
    cd doe_sangue
@@ -90,20 +82,16 @@ db.niveis.find();
    make py.crawl
    ```
 4. Para visualizar os dados, utilize o comando:
-```bash
-db.niveis.find();
-```
-
+   ```bash
+   db.niveis.find();
+   ```
 5. Para exportar para json, fora do shell do Mongodb, utilize:
-
-```bash
-mongoexport --db doe_sangue --collection niveis --out niveis.json
-```
-
+   ```bash
+   mongoexport --db doe_sangue --collection niveis --out niveis.json
+   ```
 6. Para exportar para json, fora do shell do Mongodb, utilize:
-
-```bash
-mongoexport --db doe_sangue --collection niveis --out niveis.json
-```
+   ```bash
+   mongoexport --db doe_sangue --collection niveis --out niveis.json
+   ```
 
 Obs: O servidor do database esta configurado para o localhost e na porta 27017
