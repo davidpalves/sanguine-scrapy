@@ -1,6 +1,4 @@
-![doe sangue](assets/icon.svg)
-
-# Doe Sangue Scraping Tool
+# Doe Sangue Scraping Tool ![doe sangue](assets/icon.svg)
 
 Ferramenta de monitoramento de estoque dos bancos de sangue do estado de Pernambuco.
 
