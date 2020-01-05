@@ -20,9 +20,9 @@ Bancos de sangue pesquisados:
    1. Clone o repositório
    2. Navegue até a pasta criada
    2. Inicie os servicos usando o docker-compose
-   ```bash
-   docker-compose up -d --build
-   ``` 
+      ```bash
+      docker-compose up -d --build
+      ``` 
     
 ### Usando o Linux
 
