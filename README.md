@@ -86,5 +86,3 @@ Bancos de sangue pesquisados:
    ```bash
    mongoexport --db doe_sangue --collection niveis --out niveis.json
    ```
-
-Obs: O servidor do database esta configurado para o localhost e na porta 27017
