@@ -62,7 +62,7 @@ Bancos de sangue pesquisados:
 1. Clone o repositório
    ```bash
    git clone https://github.com/DavidPierre21/doe-sangue-scrapy.git
-   ``````bash
+   ```
 2. Navegue até o diretório do projeto
    ```bash
    cd doe_sangue
