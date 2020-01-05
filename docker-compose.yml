@@ -1,1 +1,48 @@
+# Version 3.7 chosen for the depends_on support
 
+version: "3.7"
+
+services:
+  mongo:
+    image: "mongo:3"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: MongoDMONGO_INITDB_ROOT_PASSWORD
+    volumes:
+      - ~/mongo:/data/db
+    networks:
+      - mongo-compose-network
+    ports:
+      - "27017"
+
+  scrapper:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      MONGODB_SERVER: mongo
+      MONGODB_PORT: 27017
+      MONGODB_DB: doe_sangue
+      MONGODB_COLLECTION: niveis
+    networks:
+      - mongo-compose-network
+    depends_on:
+      - mongo
+
+  mongo-express:
+    image: mongo-express
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: renatogroffe
+      ME_CONFIG_BASICAUTH_PASSWORD: MongoExpress2019!
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGOproductionB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: MongoDB2019!
+    ports:
+      - 8081:8081
+    networks:
+      - mongo-compose-network
+    depends_on:
+      - mongo
+
+networks:
+  mongo-compose-network:
