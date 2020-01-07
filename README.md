@@ -17,7 +17,13 @@ Bancos de sangue pesquisados:
    2. Docker compose 1.21.0
 
    #### Passos
-
+   1. Clone o repositório
+   2. Navegue até a pasta criada
+   2. Inicie os servicos usando o docker-compose
+      ```bash
+      docker-compose up -d --build
+      ``` 
+    
 ### Usando o Linux
 
    #### Requisitos
@@ -27,61 +33,52 @@ Bancos de sangue pesquisados:
    4. [Python Decouple 3.1](https://github.com/henriquebastos/python-decouple)
    5. [Scrapy 1.5.1](https://scrapy.org/)
 
-#### Passos
-1. Instale o Python
-2. Instale os requisitos do projeto
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Instale o MongoDB
-4. Inicie o servico do mongo
-   ```bash
-   sudo service start mongod
-   ```
-5. Verifique o status do serviço
-   ```bash
-   sudo service status mongod
-   ```
-6. Inicie o shell do Mongo
-   ```bash
-   mongo
-   ```
-7. Selecione a base de dados chamada "doe_sangue" (se não ainda existir é criada automaticamente)
-   ```bash
-   use doe_sangue;
-   ```
-8. Crie a coleção de dados chamada "niveis"
-   ```bash
-   db.createCollection("niveis");
-   ```
+   #### Passos
+   1. Clone o repositório
+   2. Instale o Python
+   3. Instale os requisitos do projeto
+      ```bash
+      pip install -r requirements.txt
+      ```
+   4. Instale o MongoDB
+   5. Inicie o servico do mongo
+      ```bash
+      sudo service start mongod
+      ```
+   6. Verifique o status do serviço
+      ```bash
+      sudo service status mongod
+      ```
+   7. Inicie o shell do Mongo
+      ```bash
+      mongo
+      ```
+   8. Selecione a base de dados chamada "doe_sangue" (se não ainda existir é criada automaticamente)
+      ```bash
+      use doe_sangue;
+      ```
+   9. Crie a coleção de dados chamada "niveis"
+      ```bash
+      db.createCollection("niveis");
+      ```
 ---
 
 ## Coletando os dados das bases
-### No docker
-### No Linux
-1. Clone o repositório
-   ```bash
-   git clone https://github.com/DavidPierre21/doe-sangue-scrapy.git
-   ``````bash
-2. Navegue até o diretório do projeto
-   ```bash
-   cd doe_sangue
-   ```
-3. Finalmente, execute a busca passando como argumento o banco de sangue a ser buscado:
 
+1. Acesse o conteiner ou navegue até o diretório do projeto
+2. Execute a busca passando como argumento o banco de sangue a ser buscado:
    ```bash
    scrapy crawl hemope
    ```
-   
-   Ou buscando em todos os bancossite seja bem amador o banco de sangue IHENE é muito usado em pernambuco seria interessante ter eles na lista
+   Ou buscando em todos os bancos
    ```bash
    make py.crawl
    ```
-4. Para visualizar os dados, utilize o comando:
+3. Para visualizar os dados, utilize o comando:
    ```bash
    db.niveis.find();
    ```
-5. Para exportar para json, fora do shell do Mongodb, utilize:
+4. Para exportar para json, fora do shell do Mongodb, utilize:
    ```bash
    mongoexport --db doe_sangue --collection niveis --out niveis.json
    ```
@@ -89,5 +86,3 @@ Bancos de sangue pesquisados:
    ```bash
    mongoexport --db doe_sangue --collection niveis --out niveis.json
    ```
-
-Obs: O servidor do database esta configurado para o localhost e na porta 27017
