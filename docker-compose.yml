@@ -1,7 +1,4 @@
-# Version 3.7 chosen for the depends_on support
-
 version: "3.7"
-
 services:
   mongo:
     image: "mongo:3"
