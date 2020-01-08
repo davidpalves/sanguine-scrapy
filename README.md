@@ -1,4 +1,5 @@
 # ![doe sangue](assets/icon-small.svg) Doe Sangue Scraping Tool 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/280a21aeb4df47fd9a9f5ab22f7d85d9)](https://www.codacy.com/manual/edumco/doe-sangue-scrapy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=edumco/doe-sangue-scrapy&amp;utm_campaign=Badge_Grade)
 
 Ferramenta de monitoramento de estoque dos bancos de sangue do estado de Pernambuco.
 
