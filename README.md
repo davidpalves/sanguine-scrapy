@@ -3,6 +3,8 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/280a21aeb4df47fd9a9f5ab22f7d85d9)](https://www.codacy.com/manual/edumco/doe-sangue-scrapy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=edumco/doe-sangue-scrapy&amp;utm_campaign=Badge_Grade)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/davidpierre21/doe-sangue-scrapy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/davidpierre21/doe-sangue-scrapy/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/davidpierre21/doe-sangue-scrapy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/davidpierre21/doe-sangue-scrapy/context:python)
+
+[![DeepSource](https://static.deepsource.io/deepsource-badge-light.svg)](https://deepsource.io/gh/edumco/doe-sangue-scrapy/?ref=repository-badge)
 [![DepShield Badge](https://depshield.sonatype.org/badges/owner/repository/depshield.svg)](https://depshield.github.io)
 
 Ferramenta de monitoramento de estoque dos bancos de sangue do estado de Pernambuco.
