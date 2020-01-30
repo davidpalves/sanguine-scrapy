@@ -5,7 +5,7 @@ backcall==0.1.0
 cffi==1.13.2
 constantly==15.1.0
 cryptography==2.4.2
-cssselect==1.0.3
+cssselect==1.1.0
 decorator==4.4.1
 flake8==3.7.9
 freeze==1.0.10
