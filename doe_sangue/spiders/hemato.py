@@ -6,7 +6,6 @@ from .constants import (
     XPATH_TIPO_SANGUE,
     XPATH_NIVEL_SANGUE,
     XPATH_PAGES,
-    XPATH_PLACE_NAME,
     XPATH_ADDRESS,
     XPATH_CITY
 )
