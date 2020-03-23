@@ -74,7 +74,7 @@ Bancos de sangue pesquisados:
 
 ## Coletando os dados das bases
 
-1. Acesse o conteiner ou navegue até o diretório do projeto
+1. Acesse o container ou navegue até o diretório do projeto
 2. Execute a busca passando como argumento o banco de sangue a ser buscado:
    ```bash
    scrapy crawl hemope
