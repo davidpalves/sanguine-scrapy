@@ -1,5 +1,3 @@
-#!/bin/bash
-
 cd doe_sangue
 
 JUMPLINE="\n\n"
