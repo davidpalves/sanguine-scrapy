@@ -31,7 +31,7 @@ pycparser==2.19
 PyDispatcher==2.0.5
 pyflakes==2.0.0
 Pygments==2.6.1
-PyHamcrest==1.9.0
+PyHamcrest==2.0.2
 pymongo==3.10.1
 pyOpenSSL==18.0.0
 python-decouple==3.3
