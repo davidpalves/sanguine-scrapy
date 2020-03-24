@@ -15,7 +15,7 @@ incremental==17.5.0
 ipdb==0.11
 ipython==7.13.0
 ipython-genutils==0.2.0
-jedi==0.15.2
+jedi==0.16.0
 lxml==4.5.0
 mccabe==0.6.1
 parsel==1.5.1
