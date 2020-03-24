@@ -42,5 +42,5 @@ six==1.14.0
 traitlets==4.3.2
 Twisted==19.10.0
 w3lib==1.19.0
-wcwidth==0.1.7
+wcwidth==0.1.9
 zope.interface==4.7.1
