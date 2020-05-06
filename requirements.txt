@@ -27,7 +27,7 @@ ptyprocess==0.6.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.7
 pycodestyle==2.5.0
-pycparser==2.19
+pycparser==2.20
 PyDispatcher==2.0.5
 pyflakes==2.0.0
 Pygments==2.6.1
