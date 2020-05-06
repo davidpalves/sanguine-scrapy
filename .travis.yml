@@ -1,0 +1,30 @@
+language: python
+
+os: linux
+
+dist: bionic
+
+python:
+  # bionic LTS versions
+  - 3.6.10 
+  - 3.7.6
+  - 3.8.2
+  
+  # Newer Python versions
+  - 3.7.7
+  - 3.8.3
+  - 3.9
+  
+jobs:
+  allow_failures:
+    - python: 3.7.7
+    - python: 3.8.3
+    - python: 3.9
+
+install:
+  - python3 -m pip install -r requirements.txt
+
+script:
+  - python3 run.py > run-output.txt
+
+cache: pip
