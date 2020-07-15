@@ -13,7 +13,7 @@ Ferramenta de monitoramento de estoque dos bancos de sangue do estado de Pernamb
 
 Bancos de sangue pesquisados:
 - [HEMOPE - Recife](http://www.hemope.pe.gov.br)
-- [HEMATO (Grupo GSH)- Recife](https://doesanguedoevida.com.br/doar-sangue-recife)
+- [HEMATO (Grupo GSH)](https://doesanguedoevida.com.br/doar-sangue-recife)
 
 ---
 
