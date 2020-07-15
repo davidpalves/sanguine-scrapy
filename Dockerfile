@@ -15,7 +15,6 @@ ENV MONGODB_DB=doe_sangue
 
 ENV MONGODB_COLLECTION=niveis
 
-# Creates a non root user to execute application
-USER scrapy
+EXPOSE 9080
 
-CMD scrapy crawl hemope
+CMD ["scrapyrt"]

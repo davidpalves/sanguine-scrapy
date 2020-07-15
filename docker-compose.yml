@@ -4,7 +4,7 @@ services:
     image: "mongo:3"
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: MongoDMONGO_INITDB_ROOT_PASSWORD
+      MONGO_INITDB_ROOT_PASSWORD: MongoDB2019!
     volumes:
       - ~/mongo:/data/db
     networks:
@@ -29,11 +29,11 @@ services:
   mongo-express:
     image: mongo-express
     environment:
-      ME_CONFIG_BASICAUTH_USERNAME: renatogroffe
-      ME_CONFIG_BASICAUTH_PASSWORD: MongoExpress2019!
       ME_CONFIG_MONGODB_PORT: 27017
-      ME_CONFIG_MONGOproductionB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: MongoDB2019!
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: secret
     ports:
       - 8081:8081
     networks:
