@@ -8,17 +8,17 @@ from .constants import (
     XPATH_PAGES,
     XPATH_ADDRESS,
     XPATH_CITY,
-    XPATH_CITY_WITHOUT_COMPLEMENT
+    XPATH_CITY_WITHOUT_COMPLEMENT,
 )
 
 
 class HematoSpider(scrapy.Spider):
-    name = 'hemato'
-    allowed_domains = ['www.doesanguedoevida.com.br']
-    start_urls = ['http://www.doesanguedoevida.com.br/doar-sangue-recife/']
+    name = "hemato"
+    allowed_domains = ["www.doesanguedoevida.com.br"]
+    start_urls = ["http://www.doesanguedoevida.com.br/doar-sangue-recife/"]
 
     def parse(self, response):
-        pages = response.xpath(XPATH_PAGES['hemato'])
+        pages = response.xpath(XPATH_PAGES["hemato"])
 
         for page in pages:
             yield response.follow(page, callback=self.parse_item)
@@ -26,37 +26,37 @@ class HematoSpider(scrapy.Spider):
     def parse_item(self, response):
         item = HematoItem()
 
-        item['url'] = response.url
+        item["url"] = response.url
 
-        item['banco'] = 'HEMATO'
+        item["banco"] = "HEMATO"
 
-        item['data_extracao'] = datetime.now()
+        item["data_extracao"] = datetime.now()
 
-        item['endereco'] = response.xpath(
-            XPATH_ADDRESS['hemato']).extract_first()
+        item["endereco"] = response.xpath(XPATH_ADDRESS["hemato"]).extract_first()
 
-        cidade = response.xpath(
-            XPATH_CITY['hemato']).extract_first()
+        cidade = response.xpath(XPATH_CITY["hemato"]).extract_first()
 
         if len(cidade.strip()) > 0:
-            item['cidade'] = cidade
+            item["cidade"] = cidade
         else:
-            item['cidade'] = response.xpath(
-                XPATH_CITY_WITHOUT_COMPLEMENT['hemato']).extract_first()
+            item["cidade"] = response.xpath(
+                XPATH_CITY_WITHOUT_COMPLEMENT["hemato"]
+            ).extract_first()
 
-        item['_id'] = item['banco'] + "-" + item['cidade']
+        item["_id"] = item["banco"] + "-" + item["cidade"]
 
         sangue = []
-        for tipo_sangue in response.xpath(XPATH_ITEMS['hemato']):
+        for tipo_sangue in response.xpath(XPATH_ITEMS["hemato"]):
             tipo_sanguineo = tipo_sangue.xpath(
-                XPATH_TIPO_SANGUE['hemato']).extract_first()
+                XPATH_TIPO_SANGUE["hemato"]
+            ).extract_first()
 
             nivel_sangue = tipo_sangue.xpath(
-                XPATH_NIVEL_SANGUE['hemato']).extract_first()
+                XPATH_NIVEL_SANGUE["hemato"]
+            ).extract_first()
 
-            sangue.append(
-                {'tipo_sangue': tipo_sanguineo, 'nivel_sangue': nivel_sangue})
+            sangue.append({"tipo_sangue": tipo_sanguineo, "nivel_sangue": nivel_sangue})
 
-        item['sangue'] = sangue
+        item["sangue"] = sangue
 
         yield item

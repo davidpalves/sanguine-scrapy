@@ -7,6 +7,8 @@ constantly==15.1.0
 cryptography==2.8
 cssselect==1.1.0
 decorator==4.4.1
+demjson==2.2.4
+entrypoints==0.3
 flake8==3.7.9
 freeze==1.0.10
 hyperlink==18.0.0
@@ -23,6 +25,7 @@ parso==0.7.0
 pexpect==4.6.0
 pickleshare==0.7.5
 prompt-toolkit==3.0.4
+psycopg2==2.8.5
 ptyprocess==0.6.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.7
@@ -37,6 +40,7 @@ pyOpenSSL==19.1.0
 python-decouple==3.3
 queuelib==1.5.0
 Scrapy==1.5.1
+scrapyrt==0.11.0
 service-identity==18.1.0
 six==1.14.0
 traitlets==4.3.2
