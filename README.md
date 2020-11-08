@@ -1,4 +1,4 @@
-# ![doe sangue](assets/icon-small.svg) Doe Sangue Scraping Tool 
+# ![doe sangue](assets/icon-small.svg) Doe Sangue Scraping Tool
 ![GitHub](https://img.shields.io/github/license/edumco/doe-sangue-scrapy)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/280a21aeb4df47fd9a9f5ab22f7d85d9)](https://www.codacy.com/manual/edumco/doe-sangue-scrapy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=edumco/doe-sangue-scrapy&amp;utm_campaign=Badge_Grade)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/davidpierre21/doe-sangue-scrapy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/davidpierre21/doe-sangue-scrapy/alerts/)
@@ -18,20 +18,6 @@ Bancos de sangue pesquisados:
 
 ## Instalação do projeto
 
-### Usando o Docker
-
-   #### Requisitos
-   1. Docker Comunity Edition 19.03.5
-   2. Docker compose 1.21.0
-
-   #### Passos
-   1. Clone o repositório
-   2. Navegue até a pasta criada
-   2. Inicie os servicos usando o docker-compose
-      ```bash
-      docker-compose up -d --build
-      ``` 
-    
 ### Usando o Linux
 
    #### Requisitos
@@ -43,31 +29,26 @@ Bancos de sangue pesquisados:
 
    #### Passos
    1. Clone o repositório
-   2. Instale o Python
-   3. Instale os requisitos do projeto
+   2. Crie um ambiente virtual (Virtualenv)
+      ```bash
+      virtualenv venv
+      ```
+   3. Ative o virtualenv criado
+      ```bash
+      source venv/bin/activate
+      ```
+   4. Instale os requisitos do projeto
       ```bash
       pip install -r requirements.txt
       ```
-   4. Instale o MongoDB
-   5. Inicie o servico do mongo
+   5. Instale o MongoDB
+   6. Inicie o servico do mongo
       ```bash
       sudo service start mongod
       ```
-   6. Verifique o status do serviço
+   7. Verifique o status do serviço
       ```bash
       sudo service status mongod
-      ```
-   7. Inicie o shell do Mongo
-      ```bash
-      mongo
-      ```
-   8. Selecione a base de dados chamada "doe_sangue" (se não ainda existir é criada automaticamente)
-      ```bash
-      use doe_sangue;
-      ```
-   9. Crie a coleção de dados chamada "niveis"
-      ```bash
-      db.createCollection("niveis");
       ```
 ---
 
