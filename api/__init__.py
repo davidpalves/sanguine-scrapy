@@ -4,11 +4,11 @@ from decouple import config
 
 app = Flask(__name__)
 
-MONGODB_SERVER = config('MONGODB_SERVER')
-MONGODB_PORT = config('MONGODB_PORT')
-MONGODB_DB = config('MONGODB_DB')
+if app.config["ENV"] == "production":
+    app.config.from_object('configurations.ProductionConfig')
+else:
+    app.config.from_object('configurations.DevelopmentConfig')
 
-app.config["MONGO_URI"] = f"mongodb://{MONGODB_SERVER}:{MONGODB_PORT}/{MONGODB_DB}"
 
 mongo = PyMongo(app)
 
