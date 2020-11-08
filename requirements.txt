@@ -12,6 +12,7 @@ demjson==2.2.4
 entrypoints==0.3
 flake8==3.7.9
 Flask==1.1.2
+Flask-PyMongo==2.3.0
 freeze==1.0.10
 hyperlink==18.0.0
 idna==2.8
