@@ -54,8 +54,7 @@ Bancos de sangue pesquisados:
 
 ## Coletando os dados das bases
 
-1. Acesse o container ou navegue até o diretório do projeto
-2. Execute a busca passando como argumento o banco de sangue a ser buscado:
+1. Execute a busca passando como argumento o banco de sangue a ser buscado:
    ```bash
    scrapy crawl hemope
    ```
@@ -63,15 +62,11 @@ Bancos de sangue pesquisados:
    ```bash
    make py.crawl
    ```
-3. Para visualizar os dados, utilize o comando:
+2. Para visualizar os dados, utilize o comando:
    ```bash
    db.niveis.find();
    ```
-4. Para exportar para json, fora do shell do Mongodb, utilize:
-   ```bash
-   mongoexport --db doe_sangue --collection niveis --out niveis.json
-   ```
-6. Para exportar para json, fora do shell do Mongodb, utilize:
+3. Para exportar para json ou outro tipo de arquivo, fora do shell do Mongodb, utilize:
    ```bash
    mongoexport --db doe_sangue --collection niveis --out niveis.json
    ```
