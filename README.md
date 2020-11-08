@@ -1,6 +1,5 @@
 # ![doe sangue](assets/icon-small.svg) Doe Sangue Scraping Tool 
 ![GitHub](https://img.shields.io/github/license/edumco/doe-sangue-scrapy)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/edumco/doe-sangue)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/280a21aeb4df47fd9a9f5ab22f7d85d9)](https://www.codacy.com/manual/edumco/doe-sangue-scrapy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=edumco/doe-sangue-scrapy&amp;utm_campaign=Badge_Grade)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/davidpierre21/doe-sangue-scrapy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/davidpierre21/doe-sangue-scrapy/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/davidpierre21/doe-sangue-scrapy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/davidpierre21/doe-sangue-scrapy/context:python)
