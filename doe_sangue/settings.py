@@ -70,11 +70,6 @@ MONGODB_PORT = config('MONGODB_PORT', cast=int)
 MONGODB_DB = config('MONGODB_DB')
 MONGODB_COLLECTION = config('MONGODB_COLLECTION')
 
-POSTGRES_HOST = config('POSTGRES_HOST')
-POSTGRES_DB = config('POSTGRES_DB')
-POSTGRES_USER = config('POSTGRES_USER')
-POSTGRES_PASSWORD = config('POSTGRES_PASSWORD')
-
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 # AUTOTHROTTLE_ENABLED = True
