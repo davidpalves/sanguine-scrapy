@@ -7,15 +7,13 @@ import pymongo
 class NivelSangueHematoPipeline(object):
     def process_item(self, item, spider):
         if item["banco"] == "HEMATO":
-            i = 0
-            for sangue in item["sangue"]:
-                if float(sangue["nivel_sangue"]) > 0.6:
-                    item["sangue"][i]["nivel_sangue"] = "estavel"
-                elif float(sangue["nivel_sangue"]) >= 0.4:
-                    item["sangue"][i]["nivel_sangue"] = "alerta"
+            for tipo_sangue in item["sangue"]:
+                if float(item["sangue"][tipo_sangue]) > 0.6:
+                    item["sangue"][tipo_sangue] = "estavel"
+                elif float(item["sangue"][tipo_sangue]) >= 0.4:
+                    item["sangue"][tipo_sangue] = "alerta"
                 else:
-                    item["sangue"][i]["nivel_sangue"] = "critico"
-                i = i + 1
+                    item["sangue"][tipo_sangue] = "critico"
         return item
 
 

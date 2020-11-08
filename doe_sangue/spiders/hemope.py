@@ -1,6 +1,8 @@
-from doe_sangue.items import HemopeItem
-from datetime import datetime
 import scrapy
+
+from datetime import datetime
+
+from doe_sangue.items import HemopeItem
 from .constants import (
     XPATH_ITEMS,
     XPATH_TIPO_SANGUE,
@@ -30,7 +32,7 @@ class HemopeSpider(scrapy.Spider):
 
         item["_id"] = item["banco"] + "-" + item["cidade"]
 
-        sangue = []
+        sangue = {}
         for tipo_sangue in response.xpath(XPATH_ITEMS["hemope"]):
 
             tipo_sanguineo = tipo_sangue.xpath(
@@ -41,7 +43,7 @@ class HemopeSpider(scrapy.Spider):
                 r"sangue\s*(.*)"
             )
 
-            sangue.append({"tipo_sangue": tipo_sanguineo, "nivel_sangue": nivel_sangue})
+            sangue[tipo_sanguineo] = nivel_sangue
 
         item["sangue"] = sangue
 
