@@ -14,17 +14,17 @@ XPATH_NIVEL_SANGUE = {
 }
 
 XPATH_PAGES = {
-    "hemato": './/li[contains(@class, "dropdown")][1]/ul[contains(@class, "dropdown-menu")]/li/a'
+    "hemato": './/li[a[@title="Unidades"]]/ul[contains(@class, "dropdown-menu")]/li/a'
 }
 
 XPATH_PLACE_NAME = {
     "hemato": '//div[contains(@class, "container-segura")]/section/div/div[1]/p[3]/text()',
-    "hemope": "//a/img/@alt",
+    "hemope": "//footer/div[2]//p/img/@alt",
 }
 
 XPATH_ADDRESS = {
     "hemato": '//div[contains(@class, "container-segura")]/section/div/div[1]/p[1]/text()',
-    "hemope": "//address/strong[1]/text()",
+    "hemope": "//address/text()",
 }
 
 XPATH_CITY = {

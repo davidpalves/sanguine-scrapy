@@ -26,7 +26,7 @@ class HemopeSpider(scrapy.Spider):
 
         item["data_extracao"] = datetime.now()
 
-        item["endereco"] = response.xpath(XPATH_ADDRESS["hemope"]).extract_first()
+        item["endereco"] = response.xpath(XPATH_ADDRESS["hemope"]).extract_first().strip()
 
         item["cidade"] = "Recife - PE"
 

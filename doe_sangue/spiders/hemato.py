@@ -17,7 +17,7 @@ from .constants import (
 class HematoSpider(scrapy.Spider):
     name = "hemato"
     allowed_domains = ["www.doesanguedoevida.com.br"]
-    start_urls = ["http://www.doesanguedoevida.com.br/doar-sangue-recife/"]
+    start_urls = ["https://www.doesanguedoevida.com.br/banco-de-sangue-hemato"]
 
     def parse(self, response):
         pages = response.xpath(XPATH_PAGES["hemato"])
