@@ -1,9 +1,11 @@
 from scrapy.exceptions import DropItem
-from scrapy.conf import settings
+from scrapy.utils.project import get_project_settings
 import logging
 import pymongo
 
 logger = logging.getLogger()
+SETTINGS = get_project_settings()
+
 
 class NivelSangueHematoPipeline(object):
     def process_item(self, item, spider):
@@ -21,10 +23,10 @@ class NivelSangueHematoPipeline(object):
 class MongoDBPipeline(object):
     def __init__(self):
         connection = pymongo.MongoClient(
-            settings["MONGODB_SERVER"], settings["MONGODB_PORT"]
+            SETTINGS["MONGODB_SERVER"], SETTINGS["MONGODB_PORT"]
         )
-        db = connection[settings["MONGODB_DB"]]
-        self.collection = db[settings["MONGODB_COLLECTION"]]
+        db = connection[SETTINGS["MONGODB_DB"]]
+        self.collection = db[SETTINGS["MONGODB_COLLECTION"]]
 
     def process_item(self, item, spider):
         for data in item:
