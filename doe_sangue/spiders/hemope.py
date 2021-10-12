@@ -22,11 +22,11 @@ class HemopeSpider(scrapy.Spider):
 
         item["url"] = response.url
 
-        item["banco"] = response.xpath(XPATH_PLACE_NAME["hemope"]).extract_first()
+        item["banco"] = response.xpath(XPATH_PLACE_NAME["hemope"]).get().upper()
 
         item["data_extracao"] = datetime.now()
 
-        item["endereco"] = response.xpath(XPATH_ADDRESS["hemope"]).extract_first().strip()
+        item["endereco"] = response.xpath(XPATH_ADDRESS["hemope"]).get().strip()
 
         item["cidade"] = "Recife - PE"
 
@@ -35,9 +35,7 @@ class HemopeSpider(scrapy.Spider):
         sangue = {}
         for tipo_sangue in response.xpath(XPATH_ITEMS["hemope"]):
 
-            tipo_sanguineo = tipo_sangue.xpath(
-                XPATH_TIPO_SANGUE["hemope"]
-            ).extract_first()
+            tipo_sanguineo = tipo_sangue.xpath(XPATH_TIPO_SANGUE["hemope"]).get()
 
             nivel_sangue = tipo_sangue.xpath(XPATH_NIVEL_SANGUE["hemope"]).re_first(
                 r"sangue\s*(.*)"

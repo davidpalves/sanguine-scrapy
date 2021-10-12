@@ -9,7 +9,7 @@ IFS=$'\n' spiders=($(scrapy list))
 echo "================= STARTING SCRAPING ================="
 
 for i in $spiders; do
-    echo ${JUMPLINE}
+    echo "${JUMPLINE}"
     echo "Spider ${i}"
     echo "Crawling Spider ${i}..."
     scrapy crawl $i

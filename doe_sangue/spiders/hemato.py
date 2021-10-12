@@ -34,16 +34,16 @@ class HematoSpider(scrapy.Spider):
 
         item["data_extracao"] = datetime.now()
 
-        item["endereco"] = response.xpath(XPATH_ADDRESS["hemato"]).extract_first()
+        item["endereco"] = response.xpath(XPATH_ADDRESS["hemato"]).get()
 
-        cidade = response.xpath(XPATH_CITY["hemato"]).extract_first()
+        cidade = response.xpath(XPATH_CITY["hemato"]).get()
 
         if len(cidade.strip()) > 0:
             item["cidade"] = cidade
         else:
             item["cidade"] = response.xpath(
                 XPATH_CITY_WITHOUT_COMPLEMENT["hemato"]
-            ).extract_first()
+            ).get()
 
         item["_id"] = item["banco"] + "-" + item["cidade"]
 
@@ -51,11 +51,11 @@ class HematoSpider(scrapy.Spider):
         for tipo_sangue in response.xpath(XPATH_ITEMS["hemato"]):
             tipo_sanguineo = tipo_sangue.xpath(
                 XPATH_TIPO_SANGUE["hemato"]
-            ).extract_first()
+            ).get()
 
             nivel_sangue = tipo_sangue.xpath(
                 XPATH_NIVEL_SANGUE["hemato"]
-            ).extract_first()
+            ).get()
 
             sangue[tipo_sanguineo] = nivel_sangue
 

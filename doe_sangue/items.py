@@ -20,3 +20,13 @@ class HematoItem(scrapy.Item):
     data_extracao = Field()
     endereco = Field()
     cidade = Field()
+
+
+class IhebeItem(scrapy.Item):
+    _id = Field()
+    url = Field()
+    banco = Field()
+    sangue = Field()
+    data_extracao = Field()
+    endereco = Field()
+    cidade = Field()

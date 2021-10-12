@@ -1,12 +1,13 @@
 from scrapy.exceptions import DropItem
 from scrapy.conf import settings
-from scrapy import log
+import logging
 import pymongo
 
+logger = logging.getLogger()
 
 class NivelSangueHematoPipeline(object):
     def process_item(self, item, spider):
-        if item["banco"] == "HEMATO":
+        if item["banco"] in ["HEMATO", "IHEBE"]:
             for tipo_sangue in item["sangue"]:
                 if float(item["sangue"][tipo_sangue]) > 0.6:
                     item["sangue"][tipo_sangue] = "estavel"
@@ -30,5 +31,5 @@ class MongoDBPipeline(object):
             if not data:
                 raise DropItem("Missing data!")
         self.collection.update({"_id": item["_id"]}, dict(item), upsert=True)
-        log.msg("Item added to MongoDB database!", level=log.DEBUG, spider=spider)
+        logger.info("Item added to MongoDB database!",)
         return item
