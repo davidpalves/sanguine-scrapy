@@ -16,7 +16,7 @@ class NivelSangueHematoPipeline(object):
                 elif float(item["sangue"][tipo_sangue]) >= 0.4:
                     item["sangue"][tipo_sangue] = "alerta"
                 else:
-                    item["sangue"][tipo_sangue] = "critico"
+                    item["sangue"][tipo_sangue] = "critica"
         return item
 
 
