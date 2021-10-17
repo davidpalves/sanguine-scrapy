@@ -1,5 +1,7 @@
 from api import app, mongo
-from flask import jsonify
+from flask import jsonify, Response
+import subprocess
+
 
 @app.route('/', methods=['GET'])
 @app.route('/v1/', methods=['GET'])
@@ -17,4 +19,16 @@ def index():
             'sangue': nivel_sangue['sangue'],
         })
 
-    return jsonify(output)
+    return jsonify(output), 200
+
+
+@app.route('/fetch-data/')
+def execute_script():
+    script_command = './run.sh'
+    message = 'All data was updated'
+    try:
+        subprocess.Popen(script_command, stdout=subprocess.PIPE)
+    except Exception:
+        message = 'Could not fetch data properly'
+        return jsonify({'details': message}), 400
+    return jsonify({'details': message}), 200
