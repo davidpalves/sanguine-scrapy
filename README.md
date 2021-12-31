@@ -1,11 +1,4 @@
 # ![doe sangue](assets/icon-small.svg) Sanguine Scraping Tool
-![GitHub](https://img.shields.io/github/license/edumco/doe-sangue-scrapy)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/davidpierre21/doe-sangue-scrapy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/davidpierre21/doe-sangue-scrapy/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/davidpierre21/doe-sangue-scrapy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/davidpierre21/doe-sangue-scrapy/context:python)
-[![Code Quality Score](https://www.code-inspector.com/project/3097/score/svg)](https://frontend.code-inspector.com/public/project/3097/doe-sangue-scrapy/dashboard)
-
-[![DeepSource](https://static.deepsource.io/deepsource-badge-light.svg)](https://deepsource.io/gh/edumco/doe-sangue-scrapy/?ref=repository-badge)
-
 
 Ferramenta de monitoramento de estoque dos bancos de sangue do estado de Pernambuco.
 
