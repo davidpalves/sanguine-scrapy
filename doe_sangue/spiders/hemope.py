@@ -28,7 +28,9 @@ class HemopeSpider(scrapy.Spider):
 
         item["endereco"] = response.xpath(XPATH_ADDRESS["hemope"]).get().strip()
 
-        item["cidade"] = "Recife - PE"
+        item["cidade"] = "Recife"
+
+        item["estado"] = "PE"
 
         item["_id"] = item["banco"] + "-" + item["cidade"]
 

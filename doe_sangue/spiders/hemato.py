@@ -39,13 +39,22 @@ class HematoSpider(scrapy.Spider):
         cidade = response.xpath(XPATH_CITY["hemato"]).get()
 
         if len(cidade.strip()) > 0:
-            item["cidade"] = cidade
+            localidade = cidade
         else:
-            item["cidade"] = response.xpath(
+            localidade = response.xpath(
                 XPATH_CITY_WITHOUT_COMPLEMENT["hemato"]
             ).get()
 
-        item["_id"] = item["banco"] + "-" + item["cidade"]
+        item["_id"] = item["banco"] + "-" + localidade
+
+        localidade = localidade.split(" - ")
+
+        item["cidade"] = localidade[0]
+
+        item["estado"] = localidade[-1]
+
+        if len(localidade) > 2:
+            item["unidade"] = localidade[1].strip()
 
         sangue = {}
         for tipo_sangue in response.xpath(XPATH_ITEMS["hemato"]):

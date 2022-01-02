@@ -10,6 +10,7 @@ class HemopeItem(scrapy.Item):
     data_extracao = Field()
     endereco = Field()
     cidade = Field()
+    estado = Field()
 
 
 class HematoItem(scrapy.Item):
@@ -20,6 +21,8 @@ class HematoItem(scrapy.Item):
     data_extracao = Field()
     endereco = Field()
     cidade = Field()
+    estado = Field()
+    unidade = Field()
 
 
 class IhebeItem(scrapy.Item):
@@ -30,3 +33,4 @@ class IhebeItem(scrapy.Item):
     data_extracao = Field()
     endereco = Field()
     cidade = Field()
+    estado = Field()

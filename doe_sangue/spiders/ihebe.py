@@ -28,7 +28,9 @@ class IhebeSpider(scrapy.Spider):
 
         item["endereco"] = response.xpath(XPATH_ADDRESS["ihebe"])[1].get().strip()
 
-        item["cidade"] = "Belem - PA"
+        item["cidade"] = "Belém"
+
+        item["estado"] = "PA"
 
         item["_id"] = item["banco"] + "-" + item["cidade"]
 
