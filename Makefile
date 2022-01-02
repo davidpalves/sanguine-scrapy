@@ -1,3 +1,7 @@
+#!make
+include .env
+export $(shell sed 's/=.*//' .env)
+
 all: help
 
 help:
@@ -11,3 +15,6 @@ list.crawl:
 
 py.crawl:
 	@python run.py
+
+runserver:
+	@flask run

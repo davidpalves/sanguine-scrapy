@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_pymongo import PyMongo
-from decouple import config
 
 app = Flask(__name__)
 
