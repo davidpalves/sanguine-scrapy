@@ -1,7 +1,7 @@
 import re
 from api import app, mongo
+from api.helpers import force_data_update
 from flask import jsonify, request
-import subprocess
 
 
 @app.route('/', methods=['GET'])
@@ -36,11 +36,4 @@ def index():
 
 @app.route('/fetch-data/')
 def execute_script():
-    script_command = './run.sh'
-    message = 'All data was updated'
-    try:
-        subprocess.Popen(script_command, stdout=subprocess.PIPE)
-    except Exception:
-        message = 'Could not fetch data properly'
-        return jsonify({'details': message}), 400
-    return jsonify({'details': message}), 200
+    return force_data_update()
