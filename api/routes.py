@@ -34,6 +34,28 @@ def index():
     return jsonify(output), 200
 
 
-@app.route('/fetch-data/')
+@app.route('/bancos-cadastrados/')
+@app.route('/v1/bancos-cadastrados/')
 def execute_script():
-    return force_data_update()
+    niveis_sangue = mongo.db.niveis
+
+    cidade = request.args.get('cidade')
+    estado = request.args.get('estado')
+
+    filter = {}
+    if cidade: filter['cidade'] = re.compile('^' + re.escape(cidade) + '$', re.IGNORECASE)
+    if estado: filter['estado'] = re.compile('^' + re.escape(estado) + '$', re.IGNORECASE)
+
+    output = []
+    for nivel_sangue in niveis_sangue.find(filter):
+        output.append({
+            'url': nivel_sangue.get('url'),
+            'banco': nivel_sangue.get('banco'),
+            'endereco': nivel_sangue.get('endereco'),
+            'cidade': nivel_sangue.get('cidade'),
+            'estado': nivel_sangue.get('estado'),
+            'unidade': nivel_sangue.get('unidade'),
+        })
+
+    return jsonify(output), 200
+
