@@ -211,7 +211,7 @@ curl -i -H 'Accept: application/json' http://127.0.0.1:5000?estado=PE
 
 ### Listar todos os bancos de sangue de determinado banco de sangue
 
-`/v1/?banco=hemope`
+`/?banco=hemope`
 
 #### Request
 
@@ -244,28 +244,91 @@ curl -i -H 'Accept: application/json' http://127.0.0.1:5000?banco=HEMOPE
   }
 ]
 ```
-### Atualizar dados
+### Listar os bancos de sangue cadastrados
 
-### Atualiza todos os dados de bancos de sangue
+### Lista todos os bancos de sangue cadastrados
 
-`/fetch-data/`
+`/bancos-cadastrados/`
 
 #### Request
 
 ```shell
-curl -i -H 'Accept: application/json' http://127.0.0.1:5000/fetch-data/
+curl -i -H 'Accept: application/json' http://127.0.0.1:5000/bancos-cadastrados/
 ```
 
 #### Response
 
 ```json
-HTTP/1.0 200 OK
-Content-Type: application/json
-Content-Length: 40
-Server: Werkzeug/1.0.1 Python/3.7.8
-Date: Sun, 02 Jan 2022 05:58:49 GMT
+[
+  {
+    "banco": "HEMOPE", 
+    "cidade": "Recife", 
+    "endereco": "RUA JOAQUIM NABUCO, 171 - CEP 52.011-900 - GRA\u00c7AS, RECIFE", 
+    "estado": "PE", 
+    "unidade": null, 
+    "url": "http://www.hemope.pe.gov.br/"
+  }, 
+  {
+    "banco": "HEMATO", 
+    "cidade": "Recife", 
+    "endereco": "Rua Dom B\u00f4sco, 723  - Boa Vista", 
+    "estado": "PE", 
+    "unidade": null, 
+    "url": "https://www.doesanguedoevida.com.br/banco-de-sangue-hemato"
+  }
+]
+```
 
-{
-  "details": "All data was updated"
-}
+### Filtrar pelo estado
+
+### Listar todos os bancos de sangue de determinado Estado
+
+`/bancos-cadastrados/?estado=PE`
+
+#### Request
+
+```shell
+curl -i -H 'Accept: application/json' http://127.0.0.1:5000/bancos-cadastrados/?estado=PE
+```
+
+#### Response
+
+```json
+[
+   {
+    "banco": "HEMOPE",
+    "cidade": "Recife",
+    "endereco": "RUA JOAQUIM NABUCO, 171 - CEP 52.011-900 - GRA\u00c7AS, RECIFE",
+    "estado": "PE",
+    "unidade": null,
+    "url": "http://www.hemope.pe.gov.br/"
+  }
+]
+```
+
+### Filtrar pela cidade
+
+### Listar todos os bancos de sangue de determinado Estado
+
+`/bancos-cadastrados/?cidade=recife`
+
+#### Request
+
+```shell
+curl -i -H 'Accept: application/json' http://127.0.0.1:5000/bancos-cadastrados/?cidade=recife
+```
+
+#### Response
+
+```json
+[
+   {
+    "banco": "HEMOPE",
+    "cidade": "Recife",
+    "endereco": "RUA JOAQUIM NABUCO, 171 - CEP 52.011-900 - GRA\u00c7AS, RECIFE",
+    "estado": "PE",
+    "unidade": null,
+    "url": "http://www.hemope.pe.gov.br/"
+  }
+]
 ```
