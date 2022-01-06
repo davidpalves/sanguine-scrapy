@@ -7,6 +7,11 @@ Bancos de sangue pesquisados:
 - [HEMATO (Grupo GSH)](https://doesanguedoevida.com.br/doar-sangue-recife)
 
 ---
+## Sumário
+1. [Instalação do Projeto](https://github.com/davidpalves/sanguine-scrapy#instala%C3%A7%C3%A3o-do-projeto)
+2. [Coletando os dados das bases](https://github.com/davidpalves/sanguine-scrapy#coletando-os-dados-das-bases)
+3. [Executando o servidor Flask](https://github.com/davidpalves/sanguine-scrapy#executando-o-servidor-flask)
+4. [Endpoints da API](https://github.com/davidpalves/sanguine-scrapy#endpoints-da-api)
 
 ## Instalação do projeto
 
