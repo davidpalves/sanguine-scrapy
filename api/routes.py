@@ -36,7 +36,7 @@ def index():
 
 @app.route('/bancos-cadastrados/')
 @app.route('/v1/bancos-cadastrados/')
-def execute_script():
+def registered_blood_banks():
     niveis_sangue = mongo.db.niveis
 
     cidade = request.args.get('cidade')
