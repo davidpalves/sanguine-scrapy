@@ -2,7 +2,7 @@ import scrapy
 
 from datetime import datetime
 
-from doe_sangue.items import HemobaItem
+from doe_sangue.items import GenericItem
 from .constants import (
     XPATH_ITEMS,
     XPATH_TIPO_SANGUE,
@@ -18,7 +18,7 @@ class HemobaSpider(scrapy.Spider):
     start_urls = ["http://www.hemoba.ba.gov.br/"]
 
     def parse(self, response):
-        item = HemobaItem()
+        item = GenericItem()
 
         item["url"] = response.url
 

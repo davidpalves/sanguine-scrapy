@@ -2,7 +2,7 @@ import scrapy
 from scrapy import Field
 
 
-class HemopeItem(scrapy.Item):
+class GenericItem(scrapy.Item):
     _id = Field()
     url = Field()
     banco = Field()
@@ -13,34 +13,6 @@ class HemopeItem(scrapy.Item):
     estado = Field()
 
 
-class HematoItem(scrapy.Item):
-    _id = Field()
-    url = Field()
-    banco = Field()
-    sangue = Field()
-    data_extracao = Field()
-    endereco = Field()
-    cidade = Field()
-    estado = Field()
+class HematoItem(GenericItem):
     unidade = Field()
 
-
-class IhebeItem(scrapy.Item):
-    _id = Field()
-    url = Field()
-    banco = Field()
-    sangue = Field()
-    data_extracao = Field()
-    endereco = Field()
-    cidade = Field()
-    estado = Field()
-
-class HemobaItem(scrapy.Item):
-    _id = Field()
-    url = Field()
-    banco = Field()
-    sangue = Field()
-    data_extracao = Field()
-    endereco = Field()
-    cidade = Field()
-    estado = Field()

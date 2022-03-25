@@ -2,7 +2,7 @@ import scrapy
 
 from datetime import datetime
 
-from doe_sangue.items import IhebeItem
+from doe_sangue.items import GenericItem
 from .constants import (
     XPATH_ITEMS,
     XPATH_TIPO_SANGUE,
@@ -18,7 +18,7 @@ class IhebeSpider(scrapy.Spider):
     start_urls = ["https://www.ihebe.com.br/"]
 
     def parse(self, response):
-        item = IhebeItem()
+        item = GenericItem()
 
         item["url"] = response.url
 
