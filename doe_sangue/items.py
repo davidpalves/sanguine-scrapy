@@ -34,3 +34,13 @@ class IhebeItem(scrapy.Item):
     endereco = Field()
     cidade = Field()
     estado = Field()
+
+class HemobaItem(scrapy.Item):
+    _id = Field()
+    url = Field()
+    banco = Field()
+    sangue = Field()
+    data_extracao = Field()
+    endereco = Field()
+    cidade = Field()
+    estado = Field()
