@@ -1,0 +1,68 @@
+version: "3.9"
+
+networks:
+  store-net:
+    driver: bridge
+
+volumes:
+  postgres:
+  mongodb:
+  store:
+
+services:
+  store:
+    image: service/store:1.0.0
+    container_name: store
+    profiles: ["local", "all"]
+    build: .
+    command: ["./docker/local/docker-entrypoint.sh"]
+    volumes:
+      - .:/store
+    ports:
+      - "8000:8000"
+    networks:
+      - store-net
+    environment:
+      - WAIT_HOSTS=postgres:5432
+      - WAIT_HOSTS_TIMEOUT=300
+    depends_on:
+      - postgres
+      - mongodb
+
+  mongodb:
+    image: mongo
+    container_name: mongo
+    profiles: ["local", "all"]
+    ports:
+      - 27017:27017
+    networks:
+      - store-net
+    environment:
+      - MONGODB_DB=doe_sangue
+      - MONGODB_COLLECTION=niveis
+    volumes:
+      - mongodb:/var/lib/mongodb/data
+
+  postgres:
+    image: postgres:13.4
+    container_name: postgres
+    profiles: ["local", "all"]
+    ports:
+      - 5432:5432
+    networks:
+      - store-net
+    environment:
+      - POSTGRES_USER=store
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    profiles: ["local", "all"]
+    ports:
+      - 1025:1025
+      - 8025:8025
+    networks:
+      - store-net
