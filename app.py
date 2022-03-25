@@ -12,8 +12,6 @@ def update_data():
     logger.info('Updating data...')
     _, status = force_data_update()
     if status == 200:
-        pass
         logger.info('Update done successfuly!')
     else:
-        pass
         logger.info('Update failed!')
