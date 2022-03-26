@@ -25,7 +25,7 @@ XPATH_PAGES = {
 
 XPATH_PLACE_NAME = {
     "hemato": "//div[contains(@class, 'container-segura')]/section/div/div[1]/p[3]/text()",
-    "hemope": "//footer/div[2]//p/img/@alt",
+    "hemope": "//title/text()",
     "ihebe":  "//title/text()",
     "hemoba": "//div[contains(@id, 'dados-rodape')]/p/strong/text()",
 }
