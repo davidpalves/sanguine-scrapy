@@ -1,12 +1,13 @@
 import logging
-from api import app
-from api.helpers import force_data_update
+from flask import Blueprint
+from api.common.helpers import force_data_update
 
+update_data_bp = Blueprint('data', __name__)
 
 logging.basicConfig(format='%(levelname)s - %(asctime)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-@app.cli.command()
+@update_data_bp.cli.command('update')
 def update_data():
     """Update blood levels data."""
     logger.info('Updating data...')

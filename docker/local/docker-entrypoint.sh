@@ -11,4 +11,6 @@ while read -r line; do
 done < /store/docker/local/vars.env
 
 # /wait && gunicorn --reload store.wsgi --workers 1 --bind 0.0.0.0:8000 --timeout 360 --log-level debug --preload
+export FLASK_ENV=development
+export FLASK_APP='api/app.py'
 /wait && flask run --host=0.0.0.0 --port=8000
