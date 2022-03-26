@@ -1,27 +1,27 @@
 version: "3.9"
 
 networks:
-  store-net:
+  sanguine-net:
     driver: bridge
 
 volumes:
   postgres:
   mongodb:
-  store:
+  sanguine:
 
 services:
-  store:
-    image: service/store:1.0.0
-    container_name: store
+  sanguine:
+    image: service/sanguine:1.0.0
+    container_name: sanguine
     profiles: ["local", "all"]
     build: .
     command: ["./docker/local/docker-entrypoint.sh"]
     volumes:
-      - .:/store
+      - .:/sanguine
     ports:
       - "8000:8000"
     networks:
-      - store-net
+      - sanguine-net
     environment:
       - WAIT_HOSTS=postgres:5432
       - WAIT_HOSTS_TIMEOUT=300
@@ -36,7 +36,7 @@ services:
     ports:
       - 27017:27017
     networks:
-      - store-net
+      - sanguine-net
     environment:
       - MONGODB_DB=doe_sangue
       - MONGODB_COLLECTION=niveis
@@ -50,9 +50,9 @@ services:
     ports:
       - 5432:5432
     networks:
-      - store-net
+      - sanguine-net
     environment:
-      - POSTGRES_USER=store
+      - POSTGRES_USER=sanguine
       - POSTGRES_PASSWORD=password
     volumes:
       - postgres:/var/lib/postgresql/data
@@ -65,4 +65,4 @@ services:
       - 1025:1025
       - 8025:8025
     networks:
-      - store-net
+      - sanguine-net

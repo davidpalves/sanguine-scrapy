@@ -5,7 +5,7 @@ ENV PYTHONFAULTHANDLER=1 \
 RUN apt-get update && apt-get install -y gcc libffi-dev g++ libpq-dev python3-venv python3-wheel git curl telnet
 #RUN git config --global --unset https.proxy || true
 #RUN git config --global --unset http.proxy || true
-WORKDIR /store
+WORKDIR /sanguine
 FROM base as builder
 ENV PIP_DEFAULT_TIMEOUT=100 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
@@ -37,7 +37,7 @@ ENV TERM xterm-256color
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 # sources the django env, activates the venv, adds some color
 RUN bash -c "mkdir /root/.oh-my-bash/themes/meld-shell"
-COPY ./docker/local/store/term/bash.rc /root/.bashrc
-COPY ./docker/local/store/term/meld-shell.theme.sh /root/.oh-my-bash/themes/meld-shell
+COPY ./docker/local/sanguine/term/bash.rc /root/.bashrc
+COPY ./docker/local/sanguine/term/meld-shell.theme.sh /root/.oh-my-bash/themes/meld-shell
 
 RUN chmod +x /wait

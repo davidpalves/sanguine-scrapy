@@ -1,7 +1,7 @@
 #!/bin/sh
 while read -r line; do
     echo $line | grep . | grep -v '^#' && export $line;
-done < /store/docker/local/vars.env
+done < /sanguine/docker/local/vars.env
 
 . /venv/bin/activate
 
@@ -14,7 +14,7 @@ alias add-column="xargs -d '\n' printf '%-50s\n'"
 docker-help() {
     echo -e "$(cat <<EOF
 build the base image from root dir of repo:
-    docker build --no-cache -t service/store:1.0.0 -f ./docker/local/store/Dockerfile ./
+    docker build --no-cache -t service/sanguine:1.0.0 -f ./docker/local/sanguine/Dockerfile ./
 in another terminal, to be able pdb.set_trace django
     docker-compose stop web && docker-compose run --service-ports web
 in another terminal, a place to run tests, and django shell commands
@@ -46,14 +46,14 @@ get-ip() {
     for CONTAINER_HOST in $1;do
         ADD_PORT=
         ADD_PROTOCOL=
-        check_store="store"
-        if _contains "${check_store}" "${CONTAINER_HOST}"; then
+        check_sanguine="sanguine"
+        if _contains "${check_sanguine}" "${CONTAINER_HOST}"; then
           ADD_PROTOCOL="http://"
           ADD_PORT=":8000/ or try 127.0.0.1"
         fi
         check_db="postgres"
         if _contains "${check_db}" "${CONTAINER_HOST}"; then
-          ADD_PROTOCOL="postgres://store:store@"
+          ADD_PROTOCOL="postgres://sanguine:sanguine@"
           ADD_PORT=":5432/"
         fi
         echo -e "$CONTAINER_HOST $ADD_PROTOCOL`getent hosts $CONTAINER_HOST | awk '{ print $1 }'`$ADD_PORT"
@@ -62,7 +62,7 @@ get-ip() {
 paste <(add-column < <(
 echo -e "bridged django"
 echo
-get-ip "postgres store"
+get-ip "postgres sanguine"
 ))
 
 cat <<EOF
