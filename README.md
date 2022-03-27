@@ -40,6 +40,44 @@ Versão Python: 3.7.8
       ```bash
       sudo service status mongod
       ```
+
+### Usando Docker
+
+  ##### Passos
+  1. Clone o repositório
+  2. Execute o comando para construir a imagem do Conteiner:
+     ```bash
+     make docker.build
+     ```
+  3. Após executar o comando anterior, execute o comando abaixo para _ligar_ os conteiners do `docker-compose`:
+     ```bash
+     make docker.run
+     ```
+  
+  4. Após executar o comando anterior, execute o comando abaixo para _acessar o shell_ do container `sanguine`:
+     ```bash
+     make docker.shell
+     ```
+
+  5. Dentro do Shell do projeto, é possivel executar os seguintes scripts para atualizar os dados dos bancos de sangue:
+ ---
+  1. Alternativa utilizando Flask:
+     ```bash
+     cd api/ && flask data update
+     ```
+  2. Alternativa utilizando script Python:
+     ```bash
+     python run.py
+     ```
+  3. Alternativa utilizando Shellscript:
+     ```bash
+     ./run.sh
+     ```
+  4. Alternativa utilizando Scrapy, para executar uma Spyder específica, exemplo:
+     ```bash
+     scrapy crawl hemope
+     ```
+
 ---
 
 ## Coletando os dados das bases
