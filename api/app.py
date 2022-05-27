@@ -9,7 +9,6 @@ from api.resources.blood_banks_list import BloodBanksList
 from api.resources.users import CreateUser
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://mongodb:27017/doe_sangue"
 api = Api(app)
 
 app.register_blueprint(update_data_bp)
