@@ -32,4 +32,7 @@ docker.shell:
 	@docker exec -ti sanguine /bin/bash
 
 docker.mongo:
-	@docker exec -it mongodb mongo
+	@docker exec -it mongo mongo
+
+docker.db:
+	@docker exec -it postgres postgres
