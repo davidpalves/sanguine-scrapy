@@ -1,5 +1,4 @@
 # data nascimento, nome, estado, cidade, genero, tipo de sangue, email, senha
-# db.users.insertOne({nome: "Zubs", email: "zubs@email.com", estado: "PE", cidade: "Recife", genero: "M", tipo_sanguineo: "O-", senha: "12345"})
 
 import re, hashlib
 from flask_restful import fields, marshal_with, Resource, reqparse
