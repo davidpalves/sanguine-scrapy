@@ -3,6 +3,7 @@ from itsdangerous import (TimedJSONWebSignatureSerializer
 from passlib.apps import custom_app_context as pwd_context
 
 from api.app import db
+from decouple import config
 
 class User(db.Model):
     __tablename__ = "users"
@@ -23,12 +24,12 @@ class User(db.Model):
         return pwd_context.verify(password, self.senha_hash)
 
     def generate_auth_token(self, expiration=600):
-        s = Serializer('secret_key', expires_in=600)
+        s = Serializer(config('SECRET_KEY'), expires_in=600)
         return s.dumps({'id': self.id})
 
     @staticmethod
     def verify_auth_token(token):
-        s = Serializer('secret_key')
+        s = Serializer(config('SECRET_KEY'))
         try:
             data = s.loads(token)
         except SignatureExpired:
