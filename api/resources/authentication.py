@@ -23,3 +23,19 @@ class AuthenticationToken(Resource):
     def get(self):
         token = g.user.generate_auth_token(600)
         return {'token': token.decode('ascii'), 'duration': 600}, 200
+
+
+class UserDetail(Resource):
+    @auth.login_required
+    def get(self):
+        user = g.user
+        serialized_data = {
+            "nome": user.nome,
+            "email": user.email,
+            "cidade": user.cidade,
+            "estado": user.estado,
+            "genero": user.genero,
+            "tipo_sanguineo": user.tipo_sanguineo,
+        }
+
+        return serialized_data

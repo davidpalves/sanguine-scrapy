@@ -1,4 +1,3 @@
-import re
 from flask_restful import Resource, reqparse
 
 from api.app import mongo
