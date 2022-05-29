@@ -36,6 +36,8 @@ class UserDetail(Resource):
             "estado": user.estado,
             "genero": user.genero,
             "tipo_sanguineo": user.tipo_sanguineo,
+            "data_nascimento": str(user.data_nascimento),
+            "data_ultima_doacao": str(user.data_ultima_doacao),
         }
 
         return {"data": serialized_data}, 200
@@ -63,6 +65,7 @@ class UserDetail(Resource):
         user = User(**args)
 
         args["senha_hash"] = user.encrypt_password(raw_password)
+
         try:
             db.session.add(user)
             db.session.commit()
