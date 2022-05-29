@@ -1,7 +1,6 @@
 from flask import g
 from flask_httpauth import HTTPBasicAuth
 from flask_restful import Resource, reqparse
-from sqlalchemy import exc
 
 from api.app import db
 from api.models.users import User
@@ -38,4 +37,4 @@ class UserDetail(Resource):
             "tipo_sanguineo": user.tipo_sanguineo,
         }
 
-        return serialized_data
+        return {"data": serialized_data}, 200
