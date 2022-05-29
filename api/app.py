@@ -9,7 +9,6 @@ from api.common.commands import update_data_bp
 from api.resources.blood_level_list import BloodLevelsList
 from api.resources.blood_banks_list import BloodBanksList
 from api.resources.authentication import AuthenticationToken, UserDetail
-from api.resources.users import CreateUser
 
 app = Flask(__name__)
 api = Api(app)
@@ -29,5 +28,4 @@ migrate = Migrate(app, db)
 api.add_resource(BloodLevelsList, '/')
 api.add_resource(AuthenticationToken, '/auth-token/')
 api.add_resource(BloodBanksList, '/bancos-cadastrados/')
-api.add_resource(CreateUser, '/create-user/')
 api.add_resource(UserDetail, '/user/')
