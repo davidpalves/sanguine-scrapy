@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 from flask_migrate import Migrate
+from flask_cors import CORS
 
 from api.common.database import mongo, db
 from api.common.commands import update_data_bp
@@ -12,6 +13,7 @@ from api.resources.users import CreateUser
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 app.register_blueprint(update_data_bp)
 
