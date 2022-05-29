@@ -38,6 +38,8 @@ class UserDetail(Resource):
             "tipo_sanguineo": user.tipo_sanguineo,
             "data_nascimento": str(user.data_nascimento),
             "data_ultima_doacao": str(user.data_ultima_doacao),
+            "data_proxima_doacao": str(user.next_donation_date),
+            "apto_a_doar": user.is_able_to_donate,
         }
 
         return {"data": serialized_data}, 200
