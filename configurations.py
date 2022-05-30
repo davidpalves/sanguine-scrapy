@@ -13,6 +13,9 @@ class Config(object):
     POSTGRES_DB = config('POSTGRES_DB')
     POSTGRES_SERVER = config('POSTGRES_SERVER')
 
+    MAIL_SERVER = config('MAIL_SERVER')
+    MAIL_PORT = config('MAIL_PORT')
+
     SECRET_KEY = config('SECRET_KEY')
 
     MONGO_URI = f"mongodb://{MONGODB_SERVER}:{MONGODB_PORT}/{MONGODB_DB}"
