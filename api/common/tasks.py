@@ -8,7 +8,7 @@ def trigger_update():
     with app.app_context():
         force_data_update()
 
-@scheduler.task("cron", id="update_data", hour=10, minute=30)
+@scheduler.task("cron", id="update_data", day_of_week="mon" , hour=10, minute=30)
 def notify_users_for_banks_in_need():
     from api.app import app
     with app.app_context():
