@@ -1,5 +1,6 @@
 import logging
 from flask import Blueprint
+
 from api.common.helpers import force_data_update
 
 update_data_bp = Blueprint('data', __name__)

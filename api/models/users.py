@@ -32,17 +32,20 @@ class User(db.Model):
 
     @property
     def age(self):
+        age = 0
         today = date.today()
         birthdate = self.data_nascimento
-        age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+        if birthdate:
+            age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
         
         return age
 
     @property
     def next_donation_date(self):
         last_donation = self.data_ultima_doacao
-
-        return last_donation + timedelta(days=120)
+        if last_donation:
+            return last_donation + timedelta(days=120)
+        return date.today()
 
     @property
     def is_able_to_donate(self):
@@ -51,7 +54,7 @@ class User(db.Model):
         today = date.today()
 
         if age >= 16 and age <= 69:
-            if today > self.next_donation_date:
+            if today >= self.next_donation_date:
                 able = True
 
         return able
