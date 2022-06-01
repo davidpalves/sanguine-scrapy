@@ -5,8 +5,9 @@ networks:
     driver: bridge
 
 volumes:
-  postgres:
   mongodb:
+  postgres:
+  # redis:
   sanguine:
 
 services:
@@ -66,3 +67,15 @@ services:
       - 8025:8025
     networks:
       - sanguine-net
+
+  # redis:
+  #   image: redis:6.2-alpine
+  #   container_name: redis
+  #   profiles: ["local", "all"]
+  #   ports:
+  #     - 6379:6379
+  #   networks:
+  #     - sanguine-net
+  #   command: redis-server --requirepass password --appendonly yes
+  #   volumes:
+  #     - redis:/var/lib/redis/data
