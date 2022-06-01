@@ -1,6 +1,7 @@
 import scrapy
 
 from datetime import datetime
+import unicodedata
 
 from doe_sangue.items import GenericItem
 from .constants import (
@@ -41,9 +42,13 @@ class HemobaSpider(scrapy.Spider):
 
             tipo_sanguineo = tipo_sangue.xpath(XPATH_TIPO_SANGUE["hemoba"]).get()
 
-            nivel_sangue = tipo_sangue.xpath(XPATH_NIVEL_SANGUE["hemoba"]).getall()[-1].strip()
+            nivel_sangue = tipo_sangue.xpath(XPATH_NIVEL_SANGUE["hemoba"]).getall()[-1].strip().lower()
 
-            sangue[tipo_sanguineo] = nivel_sangue
+            nivel_sangue = unicodedata.normalize("NFD", nivel_sangue)
+
+            nivel_sangue = nivel_sangue.encode('ascii', 'ignore').decode('utf-8')
+
+            sangue[tipo_sanguineo] = "critica" if nivel_sangue == "critico" else nivel_sangue
 
         item["sangue"] = sangue
 
