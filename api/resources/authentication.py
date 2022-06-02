@@ -50,7 +50,6 @@ class UserDetail(Resource):
         user = g.user
 
         parser.add_argument("nome", dest="nome", required=False)
-        parser.add_argument("email", dest="email", required=False)
         parser.add_argument("cidade", dest="cidade", required=False)
         parser.add_argument("estado", dest="estado", required=False)
         parser.add_argument("genero", dest="genero", required=False)
