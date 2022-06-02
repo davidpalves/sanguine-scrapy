@@ -43,6 +43,38 @@ class UserDetail(Resource):
         }
 
         return {"data": serialized_data}, 200
+    
+    @auth.login_required
+    def patch(self):
+        parser = reqparse.RequestParser()
+        user = g.user
+
+        parser.add_argument("nome", dest="nome", required=False)
+        parser.add_argument("email", dest="email", required=False)
+        parser.add_argument("cidade", dest="cidade", required=False)
+        parser.add_argument("estado", dest="estado", required=False)
+        parser.add_argument("genero", dest="genero", required=False)
+        parser.add_argument("data_nascimento", dest="data_nascimento", required=False)
+        parser.add_argument("data_ultima_doacao", dest="data_ultima_doacao", required=False)
+        parser.add_argument("tipo_sanguineo", dest="tipo_sanguineo", required=False)
+
+        args = parser.parse_args()
+
+        for arg in args.keys():
+            if args[arg]:
+                if hasattr(user, arg):
+                    setattr(user, arg, args[arg])
+                else:
+                    return {'message': f"{arg} isn\'t a valid parameter"}, 400
+
+        
+        try:
+            db.session.commit()
+        except:
+            db.session.rollback()
+            return {'message': 'Something went wrong'}, 500
+        
+        return {}, 204
 
     def post(self):
         parser = reqparse.RequestParser()
