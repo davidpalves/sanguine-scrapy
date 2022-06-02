@@ -52,6 +52,8 @@ class UserDetail(Resource):
         parser.add_argument("cidade", dest="cidade", required=True)
         parser.add_argument("estado", dest="estado", required=True)
         parser.add_argument("genero", dest="genero", required=True)
+        parser.add_argument("data_nascimento", dest="data_nascimento", required=True)
+        parser.add_argument("data_ultima_doacao", dest="data_ultima_doacao", required=False)
         parser.add_argument("tipo_sanguineo", dest="tipo_sanguineo", required=True)
         parser.add_argument("senha", dest="senha", required=True)
         
