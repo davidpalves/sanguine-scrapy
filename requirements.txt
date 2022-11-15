@@ -73,7 +73,7 @@ pytz-deprecation-shim==0.1.0.post0
 queuelib==1.5.0
 redis==4.3.1
 rq==1.10.1
-Scrapy==1.8.1
+Scrapy==2.6.2
 scrapyrt==0.11.0
 service-identity==18.1.0
 six==1.14.0
