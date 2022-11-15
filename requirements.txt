@@ -79,7 +79,7 @@ service-identity==18.1.0
 six==1.14.0
 SQLAlchemy==1.4.34
 traitlets==4.3.2
-Twisted==20.3.0
+Twisted==22.10.0
 typing_extensions==4.1.1
 tzdata==2022.1
 tzlocal==4.2
