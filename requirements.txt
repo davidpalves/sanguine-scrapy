@@ -19,7 +19,7 @@ decorator==4.4.1
 demjson==2.2.4
 Deprecated==1.2.13
 entrypoints==0.3
-Flask==1.1.2
+Flask==2.3.2
 Flask-APScheduler==1.12.3
 Flask-Cors==3.0.10
 Flask-HTTPAuth==4.6.0
